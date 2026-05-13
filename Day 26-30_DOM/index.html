@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart System</title>
+
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+    body {
+        height:100vh;
+        width:100%;
+        font-family:'Poppins';
+        background: #9ec3de;
+        background: linear-gradient(90deg, rgba(158, 195, 222, 1) 0%, rgba(154, 227, 165, 1) 50%, rgba(157, 112, 255, 1) 100%);
+        color:black;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        text-align:center;
+    }
+    body > div {
+        padding-bottom:5%;
+    }
+    body > div > h1 {
+        text-transform:uppercase;
+    }
+    button#increaseBtn{
+            background-color:green;
+            color:white
+    }
+    button#decreaseBtn{
+            background-color:red;
+            color:white
+    }
+    button#newBtn{
+        margin-left:20px;
+    }
+    input, input:active, input:focus, 
+    input:focus-visible, input:focus-within,
+    input:hover
+    {
+        padding:6px 10px;
+        border:none;
+        outline:none;
+    }
+    .addBtn{
+        padding:12px 0;
+    }
+    body > div > button, body > div > div > button{
+        padding:6px 10px;
+        border:1px solid black;
+        width: 100%;
+        font-weight:bold;
+        cursor:pointer;
+        transition:.2s background ease-in-out;
+    }
+    button:hover{
+        background: #2396de;
+        background: linear-gradient(90deg, rgba(35, 150, 222, 1) 0%, rgba(95, 212, 115, 1) 50%, rgba(100, 28, 255, 1) 100%);
+        color:white;
+    }
+    .d{
+        display:flex;
+        flex-direction:column;
+        font-size:12px;
+    }
+    body > div:nth-child(5){
+        width:100%;
+    }
+    button#clearCart{
+        width:24%;
+        padding:6px 12px;
+    }
+    ul {
+        height:20%;
+    }
+    li{
+        list-style:none;
+    }
+    li > button {
+        padding:8px 12px;
+        cursor:pointer;
+        font-weight:bold;
+    }
+    li > button:hover {
+        background-color:hsla(0, 0%, 0%, .5);
+    }
+</style>
+<body> 
+    <div>
+        <h1>Cart System</h1>
+        <p>made with VanillaJS by LeoInferior</p>
+    </div>
+
+    <div>
+        <input id="itemInput" type="text" placeholder="Enter item name">
+        <input id="itemPrice" type="text" placeholder="Enter item price">
+        <div class="addBtn">
+            <button id="addBtn">Add Item</button>
+        </div>
+    </div>
+
+    <ul id="cartList"></ul>
+
+    <div class="d">
+        <h1>Total Items: <span id='totalItems'>0</span></h1>
+        <h1>Total Price: <span id='totalPrice'>0</span></h1>
+    </div>
+
+    <div>
+        <button id="clearCart">Clear Cart</button>
+    </div>
+    
+    <script src="script30.js"></script>
+</body>
+</html>
