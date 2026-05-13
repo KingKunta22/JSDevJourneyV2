@@ -10,5 +10,5 @@ function EventHandler() {
         </div>
     )
 }
-// TESSSSSSSSSSSTING FUCK GITHUB
+
 export default EventHandler
