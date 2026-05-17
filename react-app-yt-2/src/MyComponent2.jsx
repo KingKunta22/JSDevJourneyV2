@@ -4,6 +4,7 @@ function MyComponent2() {
   const [name, setName] = useState("Guest");
   const [qty, setQty] = useState(1);
   const [comment, setComment] = useState("");
+  const [payment, setPayment] = useState("");
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -15,6 +16,10 @@ function MyComponent2() {
 
   function handleCommentChange(event) {
     setComment(event.target.value);
+  }
+
+  function handlePaymentChange(event) {
+    setPayment(event.target.value);
   }
 
   return (
@@ -31,6 +36,14 @@ function MyComponent2() {
         placeholder="Enter your comment here"
       />
       <p>Comment: {comment}</p>
+
+      <select value={payment} onChange={handlePaymentChange}>
+            <option value="">Select an option</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="Visa">Visa</option>
+            <option value="Giftcard">Giftcard</option>
+      </select>
+      <p>Payment: {payment}</p>
     </>
   );
 }
