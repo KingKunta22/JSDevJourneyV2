@@ -9,6 +9,16 @@ function Counter() {
 
   function increment(){
     setCount(c => c + 1)
+    // setCount(c => c + 1)
+    // setCount(c => c + 1)
+  }
+  
+  function decrement(){
+    setCount(c => c - 1)
+  }
+
+  function reset(){
+    setCount(0)
   }
 
   return (
@@ -21,6 +31,8 @@ function Counter() {
         >
           Count is {count}
         </button>
+        <button onClick={decrement}>Decrement</button>
+        <button onClick={reset}>Reset</button>
       </section>
 
     </>
