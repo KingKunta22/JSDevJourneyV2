@@ -9,6 +9,7 @@
 // import MyComponent from './MyComponent'
 // import Counter from './Counter.jsx'
 import EventHandler from './EventHandler.jsx'
+import fuckniggaaaa from './Fuck Niggeeerrrr'
 
 function App() {
   return(<EventHandler />)
