@@ -8,11 +8,11 @@
 // import Button from './Button.jsx'
 // import MyComponent from './MyComponent'
 // import Counter from './Counter.jsx'
-import EventHandler from './EventHandler.jsx'
-import fuckniggaaaa from './Fuck Niggeeerrrr'
+// import EventHandler from './EventHandler.jsx'
+import MyComponent2 from './MyComponent2.jsx'
 
 function App() {
-  return(<EventHandler />)
+  return(<MyComponent2/>)
 }
 
 export default App
