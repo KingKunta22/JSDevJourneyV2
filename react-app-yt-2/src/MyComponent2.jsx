@@ -1,6 +1,17 @@
+import React, {useState} from 'react';
+
 function MyComponent2() {
+
+    const [name, setName] = useState("Guest")
+    function handleNameChange(event) {
+        setName(event.target.value);
+    }
+
     return (
-        <h1>Checking if I still remember some things...</h1>
+        <>
+            <input type="text" value={name} onChange={handleNameChange}/>
+            <p>Name: {name}</p>
+        </>
     )
 }
 
