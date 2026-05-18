@@ -8,15 +8,15 @@ function ObjectsInState() {
   });
 
   function handleYearChange(event) {
-    
+    setCar({...car, year: 2030})
   }
 
   function handleMakeChange(event) {
-    
+    setCar({...car, make: "Fart"})
   }
 
   function handleModelChange(event) {
-    
+    setCar({...car, model: "Mushroom"})
   }
 
   return (
