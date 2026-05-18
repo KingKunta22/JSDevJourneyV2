@@ -8,15 +8,15 @@ function ObjectsInState() {
   });
 
   function handleYearChange(event) {
-    setCar({...car, year: event.target.value})
+    setCar(c => ({...car, year: event.target.value}))
   }
 
   function handleMakeChange(event) {
-    setCar({...car, make: event.target.value})
+    setCar(c => ({...car, make: event.target.value}))
   }
 
   function handleModelChange(event) {
-    setCar({...car, model: event.target.value})
+    setCar(c => ({...car, model: event.target.value}))
   }
 
   return (
