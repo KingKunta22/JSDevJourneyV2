@@ -3,7 +3,16 @@ import React, { useState } from "react";
 function UpdatingArrays() {
   const [foods, setFood] = useState(["Apple", "Orange", "Strawberry", "Mango"]);
 
-  function handleAddFood() {}
+  function handleAddFood() {
+    let userInput = document.getElementById("foodInput").value
+    document.getElementById("foodInput").value = ""
+
+    setFood([...foods, userInput])
+  }
+
+  function removeFood() {
+
+  }
 
   return (
     <>
@@ -14,6 +23,8 @@ function UpdatingArrays() {
             <li key={index}>{food} </li>
           ))}
         </ul>
+        <input type="text" id="foodInput" placeholder="Enter food name" />
+        <button onClick={handleAddFood}>Add Food</button>
       </div>
     </>
   );
