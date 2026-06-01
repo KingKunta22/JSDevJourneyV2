@@ -4,14 +4,14 @@ function UpdatingArrays() {
   const [foods, setFood] = useState(["Apple", "Orange", "Strawberry", "Mango"]);
 
   function handleAddFood() {
-    let userInput = document.getElementById("foodInput").value
-    document.getElementById("foodInput").value = ""
+    let userInput = document.getElementById("foodInput").value;
+    document.getElementById("foodInput").value = "";
 
-    setFood([...foods, userInput])
+    setFood(f => [...f, userInput]);
   }
 
-  function removeFood() {
-
+  function handleRemoveFood(index) {
+    setFood(foods.filter((_, i) => i !== index))
   }
 
   return (
@@ -20,7 +20,7 @@ function UpdatingArrays() {
         <h2>Lists of Food</h2>
         <ul>
           {foods.map((food, index) => (
-            <li key={index}>{food} </li>
+            <li key={index} onClick={() => handleRemoveFood(index)}>{food} </li>
           ))}
         </ul>
         <input type="text" id="foodInput" placeholder="Enter food name" />
