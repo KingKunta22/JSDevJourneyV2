@@ -1,11 +1,11 @@
 // import Counter from './Counter.jsx'
 // import ObjectsInState from './ObjectsInState.jsx'\
-import UpdatingArrays from './UpdatingArray.jsx'
+import UpdatingArrays from './UpdatingArrays.jsx'
 
 function App() {
 
   return (
-    <UpdatingArray />
+    <UpdatingArrays />
   )
 }
 
