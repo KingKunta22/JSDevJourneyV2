@@ -5,7 +5,7 @@ import { useState } from "react"
 
 function TodoList() {
 
-    const [tasks, setTask] = useState(['Hello', 'Worlddd']);
+    const [tasks, setTask] = useState(['Hello', 'Worlddd', 'WRDDDDDD']);
 
     function handleAddTask() {
         // tasks = tasks.value // DAMN I AM SO LOST IDK WHAT TO DO COMPLETELY, IM JUST TRYING HARD
@@ -56,4 +56,5 @@ function TodoList() {
     )
 }
 
+// okay, i give up, i feel like im gonna stuck here forever if i dont send this to u...
 export default TodoList
