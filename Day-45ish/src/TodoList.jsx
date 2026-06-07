@@ -27,14 +27,14 @@ function TodoList() {
         // setTask(userTask) /// BROOO WHY ISN'T THIS WORKING.....
         // OH MY GOD I FORGOT TO ADD THE useState on my const [tasks, setTask] = useState["Hello", "MF", //"Third Task"]; :DDDDDDDDDDDDDDDDDDDDDDDDDDD HAYSSSSSSS I HOPE IT WORKS THIS TIME
         // AND OF COURSE I MISSED THE () :))))
-        setTask('userTask')
+        setTask(userTask)
         // console.log(setTask) // XD Thought this would work to see whats being added to the array...
         // console.log('2222 This part workss')
         // Wait, so I just added the console logs and it works, only the submission doesnt work?
     }
 
-    function deleteTask(index) { // I remembered I have to use index for this one, but idk whats next XD
-        
+    function handleDeleteTask(index) { // I remembered I have to use index for this one, but idk whats next XD
+        tasks.filter((task) => task.index != index) // Yea idk what im doing ngl
     }
 
     return(
@@ -48,7 +48,7 @@ function TodoList() {
             <ol> {/* I literally forgot how to use maps now inside a component... 
             Okay, so I had like "tasks.map is not a function error, now it got fixed afgter doing useState([]) LOLLLLLL SO THAT MEANS I GOT THE MAP FUNCTION THE FIRST TRY REZEZEZEZ.... */}
                 {tasks.map((task, index) => 
-                    <li key={index}>{ task } <button>X</button></li>
+                    <li key={index}>{ task } <button onClick={handleDeleteTask}>X</button></li>
                 )}
             </ol>
             {/* OH OKAY NEVERMIND I STILL HAVE IT WHEN I CLICK THE ADD BUTTON..... */}
