@@ -14,8 +14,8 @@ function ControlledInputs() {
 //   } THIOS DOESNT WORK EITHER XD
 
   function handleAddTask() {
-    let userTasks = document.getElementById("inputTask").value;
-    setTasks([...tasks, userTasks]);
+    inputValue = (document.getElementById("inputTask").value;)
+    setTasks([...tasks, inputValue]);
   }
 
   function handleDeleteTask(index) {
@@ -29,7 +29,8 @@ function ControlledInputs() {
     <>
       <h1>Todo List (Vibe-Code Free)</h1>
       <div>
-        <input type="text" placeholder="Enter a task" id="inputTask" />
+        {/* <input type="text" placeholder="Enter a task" id="inputTask">{inputValue}</input> Doesn't work either  */} 
+        <input type="text" placeholder="Enter a task" id="inputTask"/>
         <button onClick={handleAddTask}>Add</button>
       </div>
       <ol>
@@ -44,3 +45,5 @@ function ControlledInputs() {
 }
 
 export default ControlledInputs;
+
+// I am so confused, how can I tell the input tag that he's directly depending on the inputValue state???
