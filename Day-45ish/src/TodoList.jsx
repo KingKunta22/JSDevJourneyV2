@@ -71,30 +71,33 @@ function TodoList() {
     // setTasks(...tasks, userTask) // I hope this is what u meant by what you said :D
     // Bruh, i'm still getting the same errrorr.... tasks.map is not a function
     /// OHHHH, I JUST LOOKED UP YOUR TIP AND THEN I REALIZED I NEED TO ADD []
-    setTasks([...tasks, userTask])
+    // setTasks([...tasks, userTask])
     // Alright, now I need theeeee reset part (.innerHTML = "")
     // userTask.innerHTML = "" // Bruh why wont this work and the .value as well...
     // document.getElementById("inputTask").innerHTML("")
     // YE IDK WHATEVER... AT LEAST THE ADD IS NOW WOPRKING
+    setTasks([...tasks, userTask])
   }
 
   function handleDeleteTask(index) {
-    tasks.filter((task, currentIndex) => {
-        // currentIndex !== index
-        // console.log(currentIndex) // OKAY SO THIS WORKSS.....
-        // Wait, let me try this...
-        // if(currentIndex + 1 === index) {
-        //     return currentIndex 
-        // } /// LOL THIS DOESNT WORK EITHER, IM SO CONFUSED ABOUT THE AFTER => WHEN USING ARRAY METHODS HERE BECAUSE SHOULD  I USE {} OR () OR LEAVE IT BLANK OR NOT USE RETURN OR WHATEVER BECAUSE I JUST KNOW SYNTAX IS THE PROBLEM HERE... BECAUSE THE CONSOLE WORKED
-        // console.log(index),
-        // console.log(currentIndex)
-        // If tjhats the case theen this should work:
-        currentIndex !== index
-        // Bruh why is it not working....
-        // console.log(tasks) It really doesnt filtert it outttt whyyyyy
-        // WAIT, DO I NEED TO USE LI TAGS FOR TS??????????????? K LET ME TRY
-        return <li>{task}</li> // YEAAAAAAAAAAA IDKKKKKKKKKKKKKKKKKKKKKK WQUOTNQMPOK
-    })
+    // tasks.filter((task, currentIndex) => 
+    //     // currentIndex !== index
+    //     // console.log(currentIndex) // OKAY SO THIS WORKSS.....
+    //     // Wait, let me try this...
+    //     // if(currentIndex + 1 === index) {
+    //     //     return currentIndex 
+    //     // } /// LOL THIS DOESNT WORK EITHER, IM SO CONFUSED ABOUT THE AFTER => WHEN USING ARRAY METHODS HERE BECAUSE SHOULD  I USE {} OR () OR LEAVE IT BLANK OR NOT USE RETURN OR WHATEVER BECAUSE I JUST KNOW SYNTAX IS THE PROBLEM HERE... BECAUSE THE CONSOLE WORKED
+    //     // console.log(index),
+    //     // console.log(currentIndex)
+    //     // If tjhats the case theen this should work:
+    //     // index !== currentIndex
+    //     // Bruh why is it not working....
+    //     // console.log(tasks) It really doesnt filtert it outttt whyyyyy
+    //     // WAIT, DO I NEED TO USE LI TAGS FOR TS??????????????? K LET ME TRY
+    //     // return <li>{task}</li> // YEAAAAAAAAAAA IDKKKKKKKKKKKKKKKKKKKKKK WQUOTNQMPOK
+    //     currentIndex !== index
+    // )
+    tasks.filter((task, currentIndex) => currentIndex !== index)
   }
 
   return (
@@ -108,7 +111,6 @@ function TodoList() {
         {tasks.map((task, index) => (
             // <li key={index}>{task} <button onClick={(index) => handleDeleteTask}>X</button></li> // Is this how the delete onclick shoudl be?
             <li key={index}>{task} <button onClick={() => handleDeleteTask(index)}>X</button></li>
-
         ))}
       </ol>
     </>
@@ -116,3 +118,5 @@ function TodoList() {
 }
 
 export default TodoList
+
+// Also, I still dont know what u meant by const [inputValue, setInputValue]... how would I even get that from an input tag...
