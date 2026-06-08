@@ -98,7 +98,8 @@ function TodoList() {
     //     currentIndex !== index
     // )
     tasks.filter((task, currentIndex) => currentIndex !== index)
-  }
+    // setTasks(tasks)
+}
 
   return (
     <>
