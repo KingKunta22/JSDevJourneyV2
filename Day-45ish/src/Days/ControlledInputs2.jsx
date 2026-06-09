@@ -20,17 +20,59 @@ function ControlledInputs2() {
   // }
   // Oh damn, this is hard...
 
-  function handleSetInput(e) {
-    let characters = input.length;
+  //   function handleSetInput(e) {
+  //     let characters = input.length;
 
-    setInput(e.target.value);
+  //     console.log(input)
+  //     console.log(characters)
+
+  //     setInput(input);
+  //   }
+
+  // Okay, so I am still confused but theres a new bug so its a new progress... I wonder why the numbers aren';t uypodating, and its not showing the characters, its only showing the number every onChange
+
+//   function handleSetInput(e) {
+//     setInput(input);
+    
+//     let characters = input.length;
+
+//     console.log(input.value);
+//     console.log(characters);
+//   }
+
+  // Damn, I think I give up, evne htough I only spent like around 15-20 minutes doing this, I don;'t thuink i can progress further because I just don't understand what I am doing and what I have todo. So I am confused about the onChange={(e) => handleSetInput(e.target.value)}, the input, the setInput, and how to count the characters in a string and msot importantly, whats the best approach to calling the function on an onChange inside an input, and then the value {input} as well....... I'll try doing the part 4
+
+  const [characters, setCharacters] = useState(""); // Also, can I disregard the "" if I amn gionna do a number or int....
+
+  // Oh, can I put another onChange inside the same input? That sounds wrong but...
+
+  function handleSetCharacter() {
+    // Ohhh, it's kinda working because the console log is kinda workingg.... It's just not rendering anything I type.... Ohhh, it works when I remove the value={input}. I wonder why....
+    // Sooo this should work huh...
+    // let characterCount = input.length
+    // characterCount++ // Uhh, I'm so stupid whatever../ lwhta about this...
+    // let characterCount = input.length + 1 // Same thing, Im stupid XDDD
+    // Shouldn't it change everytime I type something because I
+    // console.log(characterCount) // Wait, why is this only showing 0 everytime...
+    let characterCount = input.length
+    // setCharacters(characterCount + input.length)
+    setCharacters(characterCount)
+
+    // Okay, so i am crazy conjfused rnnn and Idk hehehe, I just need help whatever ,I did my best...
   }
 
   return (
     <>
       <div>
-        <input type="text" value={input} onChange={() => handleSetInput()} />
+        <input
+          type="text"
+        //   value={input}
+        //   onChange={(e) => handleSetInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => handleSetCharacter()}
+        />
         <h1>{input}</h1>
+        <p>Characters: {characters}/10</p>
       </div>
     </>
   );
