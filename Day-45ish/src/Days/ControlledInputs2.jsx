@@ -119,21 +119,65 @@
 
 // MATTER OF FACT, LET ME TRY THE LIMIT YOU ASKED ME A WHILE AGO...
 
+// import { useState } from "react";
+
+// function ControlledInputs2() {
+//   const [input, setInput] = useState("");
+//   // Or should I put the condtional statement here???/
+//   // Or I'm oversimplifying it this time and I need a function to put the condtional statement into?
+
+//   return (
+//     <>
+//       <div>
+//         <input
+//           type="text"
+//           value={input}
+//           onChange={(e) => setInput(e.target.value)}
+//         //   Can I put a conditional statement here???
+//         />
+//         <h1>You typed: {input}</h1>
+//         <p>Characters: {input.length}/10</p>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default ControlledInputs2;
+
+// // MATTER FACT, I CANT DO IT SO, WHATEVER, XDDDDDDDDDDDDDDDDDDDDDDDDD I GIVE UP, AT LEAST I GOT WHAT U WANTED
+
+// OKAY GREAT, ITS CLEARER NOW, THANKS:
+
 import { useState } from "react";
 
 function ControlledInputs2() {
   const [input, setInput] = useState("");
-  // Or should I put the condtional statement here???/
-  // Or I'm oversimplifying it this time and I need a function to put the condtional statement into?
+
+  //   function handleChange() {
+  //     if (input.length < 10) {
+  //       setInput(input);
+  //     }
+  //   }
+  // Okay so I'm guessing the reaosn why this is not working becaause im not utiizing the e or e.target.value???
+
+  function handleChange() {
+
+    // if (input.length < 10) {
+    //   console.log(input)
+    //   setInput(input);
+    // }
+    setInput(input)
+
+    // LOL EVEN JUST setInput(input) diesnt work either wtf is wrongggg.....
+  }
 
   return (
     <>
       <div>
         <input
           type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        //   Can I put a conditional statement here???
+        //   value={input}
+          onChange={(e) => handleChange()} // Okay, so why are we not using e or e.target.value or (e) => or () => ???
         />
         <h1>You typed: {input}</h1>
         <p>Characters: {input.length}/10</p>
@@ -143,5 +187,3 @@ function ControlledInputs2() {
 }
 
 export default ControlledInputs2;
-
-// MATTER FACT, I CANT DO IT SO, WHATEVER, XDDDDDDDDDDDDDDDDDDDDDDDDD I GIVE UP, AT LEAST I GOT WHAT U WANTED
