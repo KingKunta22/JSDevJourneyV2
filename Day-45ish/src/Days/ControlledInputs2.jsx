@@ -7,7 +7,8 @@ function ControlledInputs2() {
     return(
         <>
         <div>
-            <input type="text" value= />
+            <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
+            <h1>{input}</h1>
         </div>
         </>
     )
