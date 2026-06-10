@@ -103,3 +103,15 @@ export default ArrayState;
 // NOW WHEN I DO setNotes(note) ITS STILL NOT WORKING AND I WOULDNT KNOW HOW TO MAKE IT WORK BECAUSE I CANNOT JSUT CONSOLE.LOG(SETNOTES()) OR WHATEVER THE FUCK
 
 // UPDATE: EVERYTHINGS TGOOD AND WORKING NOW, I JUST NEEDED TO SHOUT AT YOU BUT WHATEVER, IT WORKED...
+
+
+
+//Q : 
+// The result should be:
+// notes = ["Milk", "Eggs", "Bread"]
+// and the reason why [note, ...notes] produces a different result isss actually, wait no, uhhhh, I believe because the spread operator should be the first thing inside it? No, I think the spread operator placement doesn;'t matter, what it's gonna produce shouild be something like: 
+// ["Bread", "Milk", "Eggs"], so placement matters because it realigns the items inside the array.. So I believe the second one will work, only the arrangement is not perfect.... I hope im right, whatever 
+
+
+
+// DAY 50 READY BABYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
