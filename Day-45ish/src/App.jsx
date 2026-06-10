@@ -3,10 +3,11 @@
 // import TodoList from "./TodoList.jsx" // Day 46
 // import ControlledInputs from "./Days/ControlledInputs.jsx"; // Day 47
 // import ControlledInputs2 from "./Days/ControlledInputs2.jsx"; // Day 47-48
-import ArrayState from "./Days/ArrayState.jsx"; // Day 49
+// import ArrayState from "./Days/ArrayState.jsx"; // Day 49
+import DeletingItems from "./Days/DeletingItems.jsx" // Day 50
 
 function App() {
-  return <ArrayState />;
+  return <DeletingItems />;
 }
 
 export default App;
