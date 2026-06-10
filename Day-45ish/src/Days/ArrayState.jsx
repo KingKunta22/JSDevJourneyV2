@@ -61,8 +61,15 @@ function ArrayState() {
 
 
   function handleAddNote() {
-    setNotes(note)
-  }
+    // setNotes(note)
+    // setNotes(...note, notes) // I just remembered this damn
+    // Anyways still not working, its saying noptes.map is jnot a function FUCLKKKKKKK
+    // setNotes([...note, notes])
+    // Oh nevermind, its working now butttttttttt why is it work, could it be the other way aroudm, I think so..
+    setNotes([...notes, note]) // Yes it is, wow im dumb, but anyway...
+    // This should do the trick...
+    setNote("")
+}
 
   return (
     <>
@@ -92,3 +99,7 @@ function ArrayState() {
 export default ArrayState;
 
 // ALSO PLEASEEEEEEEEEEE DO NO TUFCKING IGNORE ALL MY QUESTIONS, I LITERALLY WAS ASKING YOU HOW TO CHECK IF THE FUCKING STATE IS GETTING UPDATED ON EITHER setNotes() or setNote() and you didnt answer shit. YOURE FUCKING CRAZYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY YOURE FUCKING IRRITATING ME LOWKEY. OBVIOUSLY IM LOST AND YOU DECIDE TIO FUCKING FORCE SPOONFEED ME WITH YOUR FDUUCKING SHITS THAT ISNT EVEN ENOUGH TO CLARIFY EVERYTHINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+
+// NOW WHEN I DO setNotes(note) ITS STILL NOT WORKING AND I WOULDNT KNOW HOW TO MAKE IT WORK BECAUSE I CANNOT JSUT CONSOLE.LOG(SETNOTES()) OR WHATEVER THE FUCK
+
+// UPDATE: EVERYTHINGS TGOOD AND WORKING NOW, I JUST NEEDED TO SHOUT AT YOU BUT WHATEVER, IT WORKED...
