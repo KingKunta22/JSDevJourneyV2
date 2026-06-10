@@ -4,24 +4,46 @@
 import { useState } from "react";
 
 function ArrayState() {
+  const [note, setNote] = useState("");
+  const [notes, setNotes] = useState([]);
 
-    const [note, setNote] = useState("")
-    const [notes, setNotes] = useState([])
+  // function handleAddNote() {
+  //     setNotes(note)
+  // }
+
+  // Wow, I acc find this hard now, I regret saying I might not learn from this soooo XDDD I got humbled
+  // I am thjinking: if I do setNotes(note) the note willl be added to the setNotes state...
+
+  function handleAddNote() {
+    setNote(note);
+    setNotes(note);
+    // console.log(note) // Why is this not savinggg, whys the note not being added to the setNote tstatteeeeee
+    // console.log(setNote)
+    // console.log(setNotes)
+    // Okay damn that got me lost alreadyyyyyyyyyyyyyyyy, how do I checkkk if the notes are added to either setNote or setNotesssssssq rqwruniqowrkmq
+    setNote(notes);
+    setNotes(notes);
+  }
 
   return (
     <>
-    <br />
+      <br />
       <h1>Simple Notes App (Vibe-Code Free)</h1>
       <br />
       <div>
-        <input type="text" />
-        <button>Add</button>
+        <input type="text" placeholder="Add a note" />
+        {/* OMGGG DO I NEED THIS  value={note} OR NOOOOOOO, I BELIEVE NO BECAUSE WE'RE NOT DOING STATE CHANGESSS OR IDKKKKK THE ONE WHERE IT SHOWS THE NOTES YOU ADDED.... IDKWIQNRTOQKWMRPQ M */}
+        <button onClick={handleAddNote}>Add</button>
       </div>
       <br />
       <br />
       <div>
         <h2>Notes Added</h2>
-        <ul></ul>
+        <ul>
+          {notes.map((note, index) => (
+            <li key={index}>{note}</li>
+          ))}
+        </ul>
       </div>
     </>
   );
