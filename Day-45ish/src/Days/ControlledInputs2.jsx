@@ -207,7 +207,7 @@ function ControlledInputs2() {
   // Let metry this:
 
   function handleChange(e) {
-    if (e.target.value.length < 10) {
+    if (e.target.value.length < 11) {
       console.log("Lesser than 10 chars");
       setInput(e.target.value)
     } else {
@@ -216,6 +216,8 @@ function ControlledInputs2() {
   }
 
   // Ohhhh okay it's working nowwwww. How did I do that though xd....
+
+  // I just needed to make it < 11 instead of < 10 and it doesnt also accept pasted responses...
 
   return (
     <>
