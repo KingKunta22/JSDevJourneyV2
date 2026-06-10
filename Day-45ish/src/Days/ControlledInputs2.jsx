@@ -148,37 +148,79 @@
 
 // OKAY GREAT, ITS CLEARER NOW, THANKS:
 
+// import { useState } from "react";
+
+// function ControlledInputs2() {
+//   const [input, setInput] = useState("");
+
+//   //   function handleChange() {
+//   //     if (input.length < 10) {
+//   //       setInput(input);
+//   //     }
+//   //   }
+//   // Okay so I'm guessing the reaosn why this is not working becaause im not utiizing the e or e.target.value???
+
+//   function handleChange() {
+
+//     // if (input.length < 10) {
+//     //   console.log(input)
+//     //   setInput(input);
+//     // }
+//     setInput(input)
+
+//     // LOL EVEN JUST setInput(input) diesnt work either wtf is wrongggg.....
+//   }
+
+//   return (
+//     <>
+//       <div>
+//         <input
+//           type="text"
+//         //   value={input}
+//           onChange={(e) => handleChange()} // Okay, so why are we not using e or e.target.value or (e) => or () => ???
+//         />
+//         <h1>You typed: {input}</h1>
+//         <p>Characters: {input.length}/10</p>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default ControlledInputs2;
+
+// Alright let me try....
+
 import { useState } from "react";
 
 function ControlledInputs2() {
   const [input, setInput] = useState("");
 
-  //   function handleChange() {
-  //     if (input.length < 10) {
-  //       setInput(input);
-  //     }
+  //   function handleChange(e) {
+  //     setInput(e.target.value)
   //   }
-  // Okay so I'm guessing the reaosn why this is not working becaause im not utiizing the e or e.target.value???
 
-  function handleChange() {
+  // So since it didnt' work with this: (e) => handleChange(), when should we apply that on an onChange?
+  // and when do we apply the onChange={handleChange}?
 
-    // if (input.length < 10) {
-    //   console.log(input)
-    //   setInput(input);
-    // }
-    setInput(input)
+  // Okay the {handleChange} made it work, let me think again how can I put a condition... because I forgot everything...
 
-    // LOL EVEN JUST setInput(input) diesnt work either wtf is wrongggg.....
+  // Let metry this:
+
+  function handleChange(e) {
+    if (e.target.value.length < 10) {
+      console.log("Lesser than 10 chars");
+      setInput(e.target.value)
+    } else {
+        console.log("More than 10 chars")
+    }
   }
+
+  // Ohhhh okay it's working nowwwww. How did I do that though xd....
 
   return (
     <>
       <div>
-        <input
-          type="text"
-        //   value={input}
-          onChange={(e) => handleChange()} // Okay, so why are we not using e or e.target.value or (e) => or () => ???
-        />
+        <input type="text" value={input} onChange={handleChange} />
         <h1>You typed: {input}</h1>
         <p>Characters: {input.length}/10</p>
       </div>
