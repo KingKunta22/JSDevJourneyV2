@@ -66,15 +66,28 @@ function UpdatingItems() {
   // Still, doesnttt workkkkkkk huhuhuuu
   // I mean I understand now that it should return a state, not a jsx, but how would i do that
 
+//     function handleUpdateNote(idx) {
+//     const updatedNotes = notes.map((note, index) => {
+//       if (index === idx) {
+//         // note("UPDATED")
+//         // return setNote("UPDATED")
+//       }
+//     });
+//     setNotes(updatedNotes);
+//   }
+
     function handleUpdateNote(idx) {
     const updatedNotes = notes.map((note, index) => {
       if (index === idx) {
-        // note("UPDATED")
-        // return setNote("UPDATED")
+        return "UPDATED"
       }
+      return note
     });
     setNotes(updatedNotes);
   }
+  // I mean, thank you for helping me, I still don't completely get itttt. I need like a fulll-blown explanation on HOW i only need return "UPDATED" and not get the inside of ittt ykkk, likeeee how does the code know that I'm updating the text inside it if im only doing this condition: (index === idx), im sorry, I just need to know thisss. Also, how does it not update the key, the li, the shits, just the text inside itt??? when Im not doing something like <li> {UPDATEDUPTADTED} OR WHATEVER {</li>}
+
+  // Matter of fact, explain the delete as well, jsut enlighten me both, I need to understand in a way that I read it to fully understand it, and then show like example codes for me to dig and understand deeper before we proceed to the next day, explain why this and that wont work, explain why this works, i need you to give me like alecture type shit, and then at the last part, give me like a few quiz or code debug or whatever, mini task. Then once I answer that we can proceed to the next day, I need like an in-depth explanation for this one cus I am 100% sure that without any hints, if im the one doing this by myself, id straight up go online, look for ai to do it for me because I can't do simple shits like this like Id have zerooooo idea and zero debugging skills or whatever, hope you understand.
 
   function handleDeleteNote(idx) {
     const filteredNotes = notes.filter((note, index) => {
