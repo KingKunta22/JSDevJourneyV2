@@ -9,12 +9,36 @@ function UpdatingItems() {
     setNote("");
   }
 
-  function handleUpdateNote(idx) { // I believe it's the same with delete soo...
+  //   function handleUpdateNote(idx) { // I believe it's the same with delete soo...
+  //     const updatedNotes = notes.map((note, index) => {
+  //         return <li>UPDATED</li>
+  //     })
+  //     setNotes(updatedNotes)
+  //   }
+
+  // For a second, I thought I'm done, not until I noticed that the rest of the li's are also named UPDATED xd
+
+  //   function handleUpdateNote(idx) {
+  //     const updatedNotes = notes.map((note, index) => {
+  //       if(index === idx) {
+  //         return <li>UPDATED</li>;
+  //       }
+  //     });
+  //     setNotes(updatedNotes);
+  //   }
+
+  // Still doesn't workkk?? And I notice an error in console log thoughghghghh
+
+  function handleUpdateNote(idx) {
     const updatedNotes = notes.map((note, index) => {
-        return <li>UPDATED</li>
-    })
-    setNotes(updatedNotes)
+      if (index === idx) {
+        return <li key={index}>UPDATED</li>;
+      }
+      return <li key={index}>{note}</li>;
+    });
+    setNotes(updatedNotes);
   }
+  // It's working this timeee (I believe), but the problem is the console logg, there's gotta be a little tweak neededd here to remove that.....
 
   function handleDeleteNote(idx) {
     const filteredNotes = notes.filter((note, index) => {
