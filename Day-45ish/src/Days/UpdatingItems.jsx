@@ -29,16 +29,52 @@ function UpdatingItems() {
 
   // Still doesn't workkk?? And I notice an error in console log thoughghghghh
 
-  function handleUpdateNote(idx) {
+  //   function handleUpdateNote(idx) {
+  //     const updatedNotes = notes.map((note, index) => {
+  //       if (index === idx) {
+  //         return <li key={index}>UPDATED</li>;
+  //       }
+  //       return <li key={index}>{note}</li>;
+  //     });
+  //     setNotes(updatedNotes);
+  //   }
+
+  // It's working this timeee (I believe), but the problem is the console logg, there's gotta be a little tweak neededd here to remove that.....
+
+  // Okay, I get what you're sayingggg, but idkk, let me try
+  //     function handleUpdateNote(idx) {
+  //     const updatedNotes = notes.map((note, index) => {
+  //       if (index === idx) {
+  //         return <li key={index}>UPDATED</li>;
+  //       }
+  //     });
+  //     setNotes(updatedNotes);
+  //   }
+
+  // Yep, I am completely lost because how could I update the content inside the li without calling ittt, like I can't just setNote("Updated")
+
+//   function handleUpdateNote(idx) {
+//     const updatedNotes = notes.map((note, index) => {
+//       if (index === idx) {
+//         setNote("UPDATED");
+//         setNotes("UPDATED");
+//       }
+//     });
+//     setNotes(updatedNotes);
+//   }
+
+  // Still, doesnttt workkkkkkk huhuhuuu
+  // I mean I understand now that it should return a state, not a jsx, but how would i do that
+
+    function handleUpdateNote(idx) {
     const updatedNotes = notes.map((note, index) => {
       if (index === idx) {
-        return <li key={index}>UPDATED</li>;
+        // note("UPDATED")
+        // return setNote("UPDATED")
       }
-      return <li key={index}>{note}</li>;
     });
     setNotes(updatedNotes);
   }
-  // It's working this timeee (I believe), but the problem is the console logg, there's gotta be a little tweak neededd here to remove that.....
 
   function handleDeleteNote(idx) {
     const filteredNotes = notes.filter((note, index) => {
