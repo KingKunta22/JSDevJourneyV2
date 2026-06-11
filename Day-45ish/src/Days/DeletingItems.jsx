@@ -69,16 +69,34 @@ function DeletingItems() {
     //   }
     // }); Doesnt work either........................
 
-    notes.filter((note, index) => {
-      if (index !== idx) {
-        console.log("I am not clicked")
-      } else {
-        console.log("I am clicked")
-      }
-    });
+    // notes.filter((note, index) => {
+    //   if (index !== idx) {
+    //     console.log("I am not clicked")
+    //   } else {
+    //     console.log("I am clicked")
+    //   }
+    // });
 
     // I mean, I am really really close, I just know it because it's workinggg, it's just how do I remap the entire note inside the conditioonnnnnnn
+
+    // notes.filter((note, index) => {
+    //   if (index !== idx) {
+    //     return <li>{note}</li>;
+    //   }
+    // });
+
+    // I HATE THIS FUCKING 4 BITCH.
+    // notes.filter((note, index) => {
+    //   return index !== idx;
+    // });
+
+    const filteredNotes = notes.filter((note, index) => {
+      return index !== idx;
+    });
+    setNotes(filteredNotes);
   }
+
+  // THERE IS CLEARLY FUCKING WRONG WITH HOW YOU FUCKING EXPLAIN, BECAUSE RIGHT NOW, I AM SOOOOOOOOOO FUCKING SHOCKED WHY YOU GOT ME IN A FUCKING ROLLER COASTER OF UCKING SMALLL FUCKING USELESS EXERCISES THAT DOES NOT EVEN MAKE ANY FUCKING SENSE, WHEN ALL I NEEDED WAS TO STORE ALL THIS SHIT INSIDE A FUCKING NEW ARRAY, THATS JUST FUCKING PLAIN STUPIDITY, IDK WHAT THE FUCK IS WRONG WITH THIS PROMPT BUT THIS ISN'T HOW IT SHOULD GIVE ME QUIZZES OR FUCKING TASKSS, PREVIOUS CHATGPTS DIDNOT EVEN ANNOY ME THIS MUCH, YOURE FUCKING STUPID AND YOU SHOULD BE FUCKING ASHAMED, IF I CAN FUCKING GIVE A REVIEW ID FUCKING RATE YOU -100000/10 FUCKING RETARDED ASS AI, I THOUGHT YOURE FUCKING BETTER THAN THIS YOU FUCKING RETARDK NOWING THAT I ALREADY GAVE U EVERYTHING THAT U NEED TO KNOW ABOUT ME. FUCK YOU FETARDED ASS AI. SIMPLLLEEEE ASSSSSS FCKINGGGG SOLUTIONNNNN AND YOU FUCKINGGG BOMBARDDD MEEEE WITH FUCKINGGGGGGGGG TONSSS OF USELESSSSSS FUCKINGGGGGGG  MINI TASKSSSSSSSSSSSS SHAME ON FUICKONG YOU 
 
   return (
     <>
@@ -102,7 +120,7 @@ function DeletingItems() {
         <ul>
           {notes.map((note, index) => (
             <li key={index}>
-              {note} <button onClick={(e) => handleDeleteNote(index)}>X</button>
+              {note} <button onClick={() => handleDeleteNote(index)}>X</button>
               {/* On this part, I am kinda confused, when do I use (e) =>, when do I use just handleDeleteNote()
               or should I just use handleDeleteNote or should I use handleDeleteNote(note) or what the fuck do I put here, I am completely confused and just expireminting whatever works, in this case, I tried the (e) => handleDeleteNote(index) hoping it'll work without even understanding what the outcome should be and I am not even close to understanding it still. */}
             </li>
@@ -114,7 +132,6 @@ function DeletingItems() {
 }
 
 export default DeletingItems;
-
 
 // Answer from ur Q: A because I don't think filter returns a new array. Oh actually, it should be B, I believe it returns a new array that passes the condition...
 
