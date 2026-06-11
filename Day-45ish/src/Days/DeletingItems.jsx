@@ -114,3 +114,15 @@ function DeletingItems() {
 }
 
 export default DeletingItems;
+
+
+// Answer from ur Q: A because I don't think filter returns a new array. Oh actually, it should be B, I believe it returns a new array that passes the condition...
+
+// First iteration: True
+// Seconjd iteration: False
+// Third Iteration: True
+
+// SO it should return: ["Milk", "Bread"]
+
+// Bro, you fucking lack explanation, FUCK DO YOU MEAN BY: this <>, bad, this <> good, redner its ..., good.
+// Are you fucking stupid?? How would I understand it bitchass, why is it bad, why is it good, fucking retarded ass answers, also, youre fucking bombarding me with these tiny ass exercises, instaed of just fucking explaining everything, youre fucking slowing everything down bitch, youre fucking pissing me off. Fucking retarded ass explanations. Crazy, cus you already fucking explained it and I cant get it on my fuckind mind, when do we need clallback fucking functions, when do we not do that, when do we just call the function without the parenthesis, when do we call it with parentheses, youre just not explaining everything properly, youre explaining like youre a fucking useless professor that only does his job for money, not for the pasion of learning fucking retarded ass prompts, im definitely moving on to a nother ai agent
