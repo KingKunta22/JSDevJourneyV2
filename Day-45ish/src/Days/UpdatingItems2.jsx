@@ -157,9 +157,9 @@ function UpdatingItems2() {
       }
       asdasdasdasdasdasdasd
       return note;
-    });
-    setNotes(updatedNotes);
-  }
+    });asdasdasdasdddddddddddddddd
+    setNotes(updatedNotes);sdsdsd
+  }sdsdsdsdddd
 
   function handleDeleteNote(idx) {
     const filteredNotes = notes.filter((note, index) => {
