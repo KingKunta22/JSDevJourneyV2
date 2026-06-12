@@ -6,7 +6,7 @@ function UpdatingItems2() {
   const [note, setNote] = useState("");
   const [notes, setNotes] = useState([]);
   // Since you mentioned we need a new state, let me do it, and also, if you wouldnt have told me to do that, i wouldnt have done this ngl
-  const [currentNote, setCurrentNote] = useState(""); // Is this correct? or just use useState(""), Im confused now.
+  const [currentNote, setCurrentNote] = useState([]); // Is this correct? or just use useState(note), Im confused now.
 
   function handleAddNote() {
     setNotes([...notes, note]);
@@ -16,7 +16,7 @@ function UpdatingItems2() {
   function handleUpdateNote(idx) {
     const updatedNotes = notes.map((note, index) => {
       if (index === idx) {
-        // return "UPDATED";
+        // return "UPDATED"; Sooo, there should be a new input with value={currentNote} and then two buttons to save or cancel, but how would I do that, I can't just <input> inside this map function, right?
       }
       return note;
     });
@@ -52,7 +52,7 @@ function UpdatingItems2() {
         <ul>
           {notes.map((note, index) => (
             <li key={index}>
-              {note}
+              {note}&thinsp;
               <button onClick={() => handleUpdateNote(index)}>Edit</button>
               <button onClick={() => handleDeleteNote(index)}>X</button>
             </li>
