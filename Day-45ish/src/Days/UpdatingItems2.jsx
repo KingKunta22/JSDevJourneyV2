@@ -151,10 +151,11 @@ function UpdatingItems2() {
 
   function handleUpdateNote(idx) {
     const updatedNotes = notes.map((note, index) => {
-      if (index === idx) {
+      if (index === currentNote) {
         return "UPDATED";
         // Okay, so do I need a new condition here to check the index inside this map and on the setNotes array?
       }
+      asdasdasdasdasdasdasd
       return note;
     });
     setNotes(updatedNotes);
