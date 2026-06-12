@@ -4,11 +4,12 @@
 // import ControlledInputs from "./Days/ControlledInputs.jsx"; // Day 47
 // import ControlledInputs2 from "./Days/ControlledInputs2.jsx"; // Day 47-48
 // import ArrayState from "./Days/ArrayState.jsx"; // Day 49
-import DeletingItems from "./Days/DeletingItems.jsx" // Day 50
-import UpdatingItems from "./Days/UpdatingItems.jsx" // Day 51
+// import DeletingItems from "./Days/DeletingItems.jsx" // Day 50
+// import UpdatingItems from "./Days/UpdatingItems.jsx" // Day 51
+import UpdatingItems2 from "./Days/UpdatingItems2.jsx" // Day 52
 
 function App() {
-  return <UpdatingItems />;
+  return <UpdatingItems2 />;
 }
 
 export default App;

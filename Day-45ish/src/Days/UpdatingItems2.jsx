@@ -1,0 +1,66 @@
+// Damn, this'll be hard because it involves updating the UI....
+
+import { useState } from "react";
+
+function UpdatingItems2() {
+  const [note, setNote] = useState("");
+  const [notes, setNotes] = useState([]);
+  // Since you mentioned we need a new state, let me do it, and also, if you wouldnt have told me to do that, i wouldnt have done this ngl
+  const [currentNote, setCurrentNote] = useState(""); // Is this correct? or just use useState(""), Im confused now.
+
+  function handleAddNote() {
+    setNotes([...notes, note]);
+    setNote("");
+  }
+
+  function handleUpdateNote(idx) {
+    const updatedNotes = notes.map((note, index) => {
+      if (index === idx) {
+        // return "UPDATED";
+      }
+      return note;
+    });
+    setNotes(updatedNotes);
+  }
+
+  function handleDeleteNote(idx) {
+    const filteredNotes = notes.filter((note, index) => {
+      return index !== idx;
+    });
+    setNotes(filteredNotes);
+  }
+
+  return (
+    <>
+      <br />
+      <h1>Simple Notes App (Vibe-Code Free)</h1>
+      <br />
+      <div>
+        <input
+          type="text"
+          placeholder="Add a note"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+        />
+        <button onClick={handleAddNote}>Add</button>
+      </div>
+      <br />
+      <h3>{note}</h3>
+      <br />
+      <div>
+        <h2>Notes Added</h2>
+        <ul>
+          {notes.map((note, index) => (
+            <li key={index}>
+              {note}
+              <button onClick={() => handleUpdateNote(index)}>Edit</button>
+              <button onClick={() => handleDeleteNote(index)}>X</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
+export default UpdatingItems2;
