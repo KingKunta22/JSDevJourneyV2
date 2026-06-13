@@ -145,62 +145,190 @@
 // This bug's pretty new to me, I dont understand why its not adding up wtffff
 // As I look up the react dev, it's helping me understand why its happening so as I can see it's getting replacedddddd, and that is because I didnt use the spread operator :))))))))))
 
+// import { useState } from "react";
+
+// function UpdatingItems3() {
+//   const [note, setNote] = useState("");
+//   const [notes, setNotes] = useState([]);
+
+//   function handleAddNote() {
+//     setNotes([...notes, note]);
+//     setNote("")
+//   }
+//   // Alright, now we gotta do the deleete, let me see if I still ahve it...
+//   function handleDeleteNote(idx) {
+//     const filteredNotes = notes.filter((note, index) => (
+//         index !== idx
+//     ))
+//     setNotes(filteredNotes)
+//   }
+
+//   // Alright, I seem to still remember it because I didn't have any too major issues soooo let me try the update one:
+//   function handleUpdateNote(idx) {
+//     const updatedNotes = notes.map((note, index) => {
+//         if(index === idx) {
+//             return "UPDATED"
+//         }
+//         return note
+//     })
+//     setNotes(updatedNotes)
+//   }
+
+//   // EZ FIRST TRYYYY, I STILL AM KINDA CONFUSEF ABOUT THE {} OR () AFTER THE => INSIDE AN ARRAY FUNCTION. I BELIEVE I SHOULD USE {} IF I WANT TO RETURN AND USE A CONDITION OR LONGER LINES OF CODE, AND THEN I NEED TO USE () IF I DONT NEED TO USE LONG LINES OF CODES OR RETURN....
+
+
+//   return (
+//     <>
+//       <br />
+//       <h1>Todo List App (Vibe-Code Free)</h1>
+//       <br />
+//       <div>
+//         <input type="text" placeholder="Enter a task" value={note} onChange={(e) => setNote(e.target.value)}/>
+//         <button onClick={handleAddNote}>Add</button>
+//       </div>
+//       <br />
+//       <p>{note}</p>
+//       <br />
+//       <div>
+//         <ol>
+//           {notes.map((note, index) => (
+//             <li key={index}>
+//               {note}&thinsp;&thinsp;
+//               <button onClick={() => handleUpdateNote(index)}>Edit</button>&thinsp;
+//               <button onClick={() => handleDeleteNote(index)}>Delete</button>
+//             </li>
+//           ))}
+//         </ol>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default UpdatingItems3;
+
+// Now, time for the real battle, your battle.... the edit shit
+// I have a few confusions and damn we need a lots of handleShit functionssss, I thought we only need one but whatever, I hope this is the one that would make me learn and understand how update or edit works here...
+
+// import { useState } from "react";
+
+// function UpdatingItems3() {
+//   const [note, setNote] = useState("");
+//   const [notes, setNotes] = useState([]);
+//   const [editingIndex, setEditingIndex] = useState(null);
+
+//   function handleAddNote() {
+//     setNotes([...notes, note]);
+//     setNote("")
+//   }
+
+//   function handleDeleteNote(idx) {
+//     const filteredNotes = notes.filter((note, index) => (
+//         index !== idx
+//     ))
+//     setNotes(filteredNotes)
+//   }
+
+//   function handleUpdateNote(idx) {
+//     const updatedNotes = notes.map((note, index) => {
+//         if(index === idx) {
+//             return "UPDATED"
+//         }
+//         return note
+//     })
+//     setNotes(updatedNotes)
+//   }
+
+
+//   return (
+//     <>
+//       <br />
+//       <h1>Todo List App (Vibe-Code Free)</h1>
+//       <br />
+//       <div>
+//         <input type="text" placeholder="Enter a task" value={note} onChange={(e) => setNote(e.target.value)}/>
+//         <button onClick={handleAddNote}>Add</button>
+//       </div>
+//       <br />
+//       <p>{note}</p>
+//       <br />
+//       <div>
+//         <ol>
+//           {notes.map((note, index) => (
+//             <li key={index}>
+//               {note}&thinsp;&thinsp;
+//               <button onClick={() => handleUpdateNote(index)}>Edit</button>&thinsp;
+//               <button onClick={() => handleDeleteNote(index)}>Delete</button>
+//             </li>
+//           ))}
+//         </ol>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default UpdatingItems3;
+
+// I also, do not want to copy your code because idk I find it hard to understand, youre kinda a bit advanced butt idk, maybe thisll help me??? Okay let me try and copy it...
+
 import { useState } from "react";
 
-function UpdatingItems3() {
+export default function UpdatingItems3() {
   const [note, setNote] = useState("");
   const [notes, setNotes] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
 
-  function handleAddNote() {
-    setNotes([...notes, note]);
-    setNote("")
+  // YOUR CODE HERE
+
+  // handleNoteChange
+  function handleNoteChange(){
+    setNotes([note])
+    setNote("");
+    // Bruh, why did this just automatically add a new notes state when I'm literally not saving yet or clicking add yet... I think I should adjust the onClick on the button or the onChange? IDK
   }
-  // Alright, now we gotta do the deleete, let me see if I still ahve it...
-  function handleDeleteNote(idx) {
+  // handleSave (add or update)
+  function handleSave() {
+
+  }
+  // handleEdit
+  function handleEdit() {
+
+  }
+  // handleDelete, so this one sould be pretty straightforward because I arleady did this...
+  function handleDelete(idx) {
     const filteredNotes = notes.filter((note, index) => (
         index !== idx
     ))
     setNotes(filteredNotes)
+    // Okay, got it first try...
   }
+  // handleCancel
+  function handleCancel() {
 
-  // Alright, I seem to still remember it because I didn't have any too major issues soooo let me try the update one:
-  function handleUpdateNote(idx) {
-    const updatedNotes = notes.map((note, index) => {
-        if(index === idx) {
-            return "UPDATED"
-        }
-        return note
-    })
-    setNotes(updatedNotes)
   }
-
-  // EZ FIRST TRYYYY, I STILL AM KINDA CONFUSEF ABOUT THE {} OR () AFTER THE => INSIDE AN ARRAY FUNCTION. I BELIEVE I SHOULD USE {} IF I WANT TO RETURN AND USE A CONDITION OR LONGER LINES OF CODE, AND THEN I NEED TO USE () IF I DONT NEED TO USE LONG LINES OF CODES OR RETURN....
 
   return (
-    <>
-      <br />
-      <h1>Todo List App (Vibe-Code Free)</h1>
-      <br />
-      <div>
-        <input type="text" placeholder="Enter a task" value={note} onChange={(e) => setNote(e.target.value)}/>
-        <button onClick={handleAddNote}>Add</button>
-      </div>
-      <br />
-      <p>{note}</p>
-      <br />
-      <div>
-        <ol>
-          {notes.map((note, index) => (
-            <li key={index}>
-              {note}&thinsp;&thinsp;
-              <button onClick={() => handleUpdateNote(index)}>Edit</button>&thinsp;
-              <button onClick={() => handleDeleteNote(index)}>Delete</button>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </>
+    <div>
+      <input
+        value={note}
+        onChange={(e) => handleNoteChange(e.target.value)}
+        placeholder="Write a note..."
+      />
+      <button onClick={handleSave}>
+        {editingIndex !== null ? "Update" : "Add"}
+      </button>
+      {editingIndex !== null && (
+        <button onClick={handleCancel}>Cancel</button>
+      )}
+
+      <ul>
+        {notes.map((n, idx) => (
+          <li key={idx}>
+            {n}
+            <button onClick={() => handleEdit(idx)}>Edit</button>
+            <button onClick={() => handleDelete(idx)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
-
-export default UpdatingItems3;
