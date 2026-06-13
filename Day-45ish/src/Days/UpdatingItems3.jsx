@@ -48,6 +48,51 @@
 // installHook.js:1 You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
 // isnt because I need to remove the value prop or value whatever you call it, because rn I can just remove it and it should look like its working but its not saving it into the state, so I need to figure out how to save that mf to the state, Im thinking that the real issue or the cause of this issue is the onClick value, rn I have the onClick={() => handleAddNote}, and Im confused if I should do that or onClick={handleAddNote} because I  tried both and nothing changed...
 
+// import { useState } from "react";
+
+// function UpdatingItems3() {
+//   const [note, setNote] = useState("");
+//   const [notes, setNotes] = useState([]);
+
+//   function handleAddNote() {
+//     setNotes(note);
+//   }
+
+//   return (
+//     <>
+//       <br />
+//       <h1>Todo List App (Vibe-Code Free)</h1>
+//       <br />
+//       <div>
+//         {/* <input type="text" placeholder="Enter a task" value={note} onChange={setNote(note)} /> Why isnt this workingggg??? */}
+//         {/* <input type="text" placeholder="Enter a task"/> Okay, wait let me remove these values )value, and onChange, and check first if it'll be added to the state if I try to do anything */}
+//         <input type="text" placeholder="Enter a task"/>
+//         {/* <button onClick={handleAddNote}>Add</button> Woah I cant believe Im still confused if I should use the onClick={() => handleAddNote} or onClick={handleAddNote}, I feel like the onClick={handleAddNote} is the right one because I'm not checking through a list of items or whatever... */}
+//         <button onClick={handleAddNote}>Add</button>
+//       </div>
+//       <br />
+//       <p>{note}</p>
+//       <br />
+//       <div>
+//         <ol>
+//           {notes.map((note, index) => (
+//             <li key={index}>
+//               {note} <br />
+//               <button>Edit</button>
+//               <button>Delete</button>
+//             </li>
+//           ))}
+//         </ol>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default UpdatingItems3;
+
+// Snapshot, so right now Im getting a new error saying notes.map is not a function, meaning it should be saved onto the state already rightt??? Sooo I just need a few tweaks I believe and I shoulddd idk, let me try something...
+
+
 import { useState } from "react";
 
 function UpdatingItems3() {
@@ -55,9 +100,13 @@ function UpdatingItems3() {
   const [notes, setNotes] = useState([]);
 
   function handleAddNote() {
-    setNotes(note);
-    setNote("");
+    setNotes([note]);
+    // Ohhh, I just remembered, I need to enclose it with the [] because the notes state is an array
+    setNote("")
   }
+  // Alright, so I fixed that, the problem now is that the state from note isnt being transferred to the notes array meaning the li has no text value or the {note} inside the map function doesnt contain anything
+
+  // So that part is good, the problem now is the value and onChange, in eedf to fix it and it should fix the current one im dealing with because it should save the valueto the note state
 
   return (
     <>
@@ -65,10 +114,9 @@ function UpdatingItems3() {
       <h1>Todo List App (Vibe-Code Free)</h1>
       <br />
       <div>
-        {/* <input type="text" placeholder="Enter a task" value={note} onChange={setNote(note)} /> Why isnt this workingggg??? */}
-        {/* <input type="text" placeholder="Enter a task"/> Okay, wait let me remove these values )value, and onChange, and check first if it'll be added to the state if I try to do anything */}
-        <input type="text" placeholder="Enter a task"/>
-        {/* <button onClick={handleAddNote}>Add</button> Woah I cant believe Im still confused if I should use the onClick={() => handleAddNote} or onClick={handleAddNote}, I feel like the onClick={handleAddNote} is the right one because I'm not checking through a list of items or whatever... */}
+        {/* <input type="text" placeholder="Enter a task" value={note} onChange={setNote(note)}/>
+        // Fuhh, why am I getting an infinite looppp, is the onChange value incorrect??? */}
+        <input type="text" placeholder="Enter a task" value={note} onChange={setNote}/>
         <button onClick={handleAddNote}>Add</button>
       </div>
       <br />
