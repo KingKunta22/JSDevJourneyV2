@@ -157,16 +157,24 @@ function UpdatingItems3() {
   }
   // Alright, now we gotta do the deleete, let me see if I still ahve it...
   function handleDeleteNote(idx) {
-    const updatedNotes = notes.filter((note, index) => (
+    const filteredNotes = notes.filter((note, index) => (
         index !== idx
     ))
-    setNotes(updatedNotes)
+    setNotes(filteredNotes)
   }
 
   // Alright, I seem to still remember it because I didn't have any too major issues soooo let me try the update one:
   function handleUpdateNote(idx) {
-
+    const updatedNotes = notes.map((note, index) => {
+        if(index === idx) {
+            return "UPDATED"
+        }
+        return note
+    })
+    setNotes(updatedNotes)
   }
+
+  // EZ FIRST TRYYYY, I STILL AM KINDA CONFUSEF ABOUT THE {} OR () AFTER THE => INSIDE AN ARRAY FUNCTION. I BELIEVE I SHOULD USE {} IF I WANT TO RETURN AND USE A CONDITION OR LONGER LINES OF CODE, AND THEN I NEED TO USE () IF I DONT NEED TO USE LONG LINES OF CODES OR RETURN....
 
   return (
     <>
