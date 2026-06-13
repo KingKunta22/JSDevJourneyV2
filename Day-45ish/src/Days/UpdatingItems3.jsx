@@ -155,6 +155,18 @@ function UpdatingItems3() {
     setNotes([...notes, note]);
     setNote("")
   }
+  // Alright, now we gotta do the deleete, let me see if I still ahve it...
+  function handleDeleteNote(idx) {
+    const updatedNotes = notes.filter((note, index) => (
+        index !== idx
+    ))
+    setNotes(updatedNotes)
+  }
+
+  // Alright, I seem to still remember it because I didn't have any too major issues soooo let me try the update one:
+  function handleUpdateNote(idx) {
+
+  }
 
   return (
     <>
@@ -173,8 +185,8 @@ function UpdatingItems3() {
           {notes.map((note, index) => (
             <li key={index}>
               {note}&thinsp;&thinsp;
-              <button>Edit</button>&thinsp;
-              <button>Delete</button>
+              <button onClick={() => handleUpdateNote(index)}>Edit</button>&thinsp;
+              <button onClick={() => handleDeleteNote(index)}>Delete</button>
             </li>
           ))}
         </ol>
