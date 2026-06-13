@@ -93,6 +93,58 @@
 // Snapshot, so right now Im getting a new error saying notes.map is not a function, meaning it should be saved onto the state already rightt??? Sooo I just need a few tweaks I believe and I shoulddd idk, let me try something...
 
 
+// import { useState } from "react";
+
+// function UpdatingItems3() {
+//   const [note, setNote] = useState("");
+//   const [notes, setNotes] = useState([]);
+
+//   function handleAddNote() {
+//     setNotes([note]);
+//     // Ohhh, I just remembered, I need to enclose it with the [] because the notes state is an array
+//     setNote("")
+//   }
+//   // Alright, so I fixed that, the problem now is that the state from note isnt being transferred to the notes array meaning the li has no text value or the {note} inside the map function doesnt contain anything
+
+//   // So that part is good, the problem now is the value and onChange, in eedf to fix it and it should fix the current one im dealing with because it should save the valueto the note state
+
+//   return (
+//     <>
+//       <br />
+//       <h1>Todo List App (Vibe-Code Free)</h1>
+//       <br />
+//       <div>
+//         {/* <input type="text" placeholder="Enter a task" value={note} onChange={setNote(note)}/>
+//         // Fuhh, why am I getting an infinite looppp, is the onChange value incorrect??? */}
+//         {/* I am really confused because based from what I know, this should work without any problems. */}
+//         <input type="text" placeholder="Enter a task" value={note} onChange={(e) => setNote(e.target.value)}/>
+//         {/* Okay, there we go, I just frgot and idk bruh im so dumb, whatever, i figured it out */}
+//         <button onClick={handleAddNote}>Add</button>
+//       </div>
+//       <br />
+//       <p>{note}</p>
+//       <br />
+//       <div>
+//         <ol>
+//           {notes.map((note, index) => (
+//             <li key={index}>
+//               {note}&thinsp;&thinsp;
+//               <button>Edit</button>&thinsp;
+//               <button>Delete</button>
+//             </li>
+//           ))}
+//         </ol>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default UpdatingItems3;
+
+// Okay, everything's looking good, but its not adding any more note values....
+// This bug's pretty new to me, I dont understand why its not adding up wtffff
+// As I look up the react dev, it's helping me understand why its happening so as I can see it's getting replacedddddd, and that is because I didnt use the spread operator :))))))))))
+
 import { useState } from "react";
 
 function UpdatingItems3() {
@@ -100,13 +152,9 @@ function UpdatingItems3() {
   const [notes, setNotes] = useState([]);
 
   function handleAddNote() {
-    setNotes([note]);
-    // Ohhh, I just remembered, I need to enclose it with the [] because the notes state is an array
+    setNotes([...notes, note]);
     setNote("")
   }
-  // Alright, so I fixed that, the problem now is that the state from note isnt being transferred to the notes array meaning the li has no text value or the {note} inside the map function doesnt contain anything
-
-  // So that part is good, the problem now is the value and onChange, in eedf to fix it and it should fix the current one im dealing with because it should save the valueto the note state
 
   return (
     <>
@@ -114,9 +162,7 @@ function UpdatingItems3() {
       <h1>Todo List App (Vibe-Code Free)</h1>
       <br />
       <div>
-        {/* <input type="text" placeholder="Enter a task" value={note} onChange={setNote(note)}/>
-        // Fuhh, why am I getting an infinite looppp, is the onChange value incorrect??? */}
-        <input type="text" placeholder="Enter a task" value={note} onChange={setNote}/>
+        <input type="text" placeholder="Enter a task" value={note} onChange={(e) => setNote(e.target.value)}/>
         <button onClick={handleAddNote}>Add</button>
       </div>
       <br />
@@ -126,8 +172,8 @@ function UpdatingItems3() {
         <ol>
           {notes.map((note, index) => (
             <li key={index}>
-              {note} <br />
-              <button>Edit</button>
+              {note}&thinsp;&thinsp;
+              <button>Edit</button>&thinsp;
               <button>Delete</button>
             </li>
           ))}
