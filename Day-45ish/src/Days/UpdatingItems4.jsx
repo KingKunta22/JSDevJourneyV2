@@ -149,25 +149,46 @@ export default function UpdatingItems4() {
     } else {
       const updatedNote = notes.filter((_, index) => index !== idx);
       setNotes(updatedNote);
-      setNote("");
+      setUserNote("");
     }
+    setEditingIndex(null);
   }
 
   function handleEditNote(idx) {
-    setEditingIndex(idx)
+    setEditingIndex(idx);
     // So, after changing the state from null to idx, I should add the note value to the associated notes index
     // Here's what comes into my mind:
     // setNote(notes[idx])
     // But it's not workingeven though it's what makes sense the most to me, and the reason why its not working is because, of course, I have to use setUserNote instead of setNote XDDDDDDDDDDDD
-    setUserNote(notes[idx])
+    setUserNote(notes[idx]);
     // Alrighttt, there we go, buttt why isnt the buttonss updating??? As I can see, the state's updated, but I think there's something wrong with using ternary operator on the return??????????????? or what?
     // OHHHH, I SEE, THE 0 index is considered as true since im using !editingIndex, thats interesting, soo let me try another approach on the ternary operator condition xd
     // Okay, there we go, I just used editingIndex === null instead :DDDDDDDDDDDDD time to work on the last two functions IGGG abnd then the last editing function on the handleAddNote
   }
 
-  function handleSave() {}
+  function handleEditSave() {
+    // console.log(editingIndex)
+    // Alright its working so this shld wrk
+    // if(editingIndex){
+    //     // setNotes()
+    //     // Okay my brain freezed here, how should I replace it without fucking up the rest of the notes xd
+    //     // setNotes([...notes, userNote])
+    //     // I hope this is it setNotes([editingIndex]) and then it should change the notes to userNote
+    //     // setNotes(userNote) FAAHHH IM SOO OCOOOKEEDDDDDD MY BRAIN NOT WORKING ANYMORE, ITS NOT ACTUALLY SUPPOSED TO BE INSIDE ACONDITIONNNN BUTT IM JUST DOING THIS TO IDKKK WHATEVER
+    // }
+    // setNotes([userNote])
+    // Okay, i am getting progress but its replacing every note, I forgot what you told me to update it instead of replacing ittt fujhhhh
+    // setNotes([...notes, userNote]) Shouldnt work either becauseeee im adding it instead of replacing/updating its associated index, but how would I do thattttt whats the syntax omg. I mean I cant justttt fuckinggg:
+    // setNotes([editingIndex]).value = userNote ... XDDDD
 
-  function handleCancel() {}
+    setEditingIndex(null);
+    setUserNote("");
+  }
+
+  function handleEditCancel() {
+    setEditingIndex(null);
+    setUserNote("");
+  }
 
   return (
     <>
@@ -190,8 +211,8 @@ export default function UpdatingItems4() {
           <button onClick={() => handleAddNote(userNote)}>Add</button>
         ) : (
           <>
-            <button>Save</button>
-            <button>Cancel</button>
+            <button onClick={handleEditSave}>Save</button>
+            <button onClick={handleEditCancel}>Cancel</button>
           </>
         )}
         {/* Okay, there we go, we js needed to replace the "" to () and use <></> */}
