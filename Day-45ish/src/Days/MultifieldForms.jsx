@@ -1,8 +1,69 @@
 // I am not copying your template babyyyyyy, im doing everything raw
+import { useState } from "react";
 
 export default function MultifieldForms() {
-    return(
-        <>
-        </>
-    )
+  const [contact, setContact] = useState({ name: "", email: "", phone: "" });
+  // So that's the input field state, I should be adding a state to save all contacts added
+  const [savedContacts, setSavedContacts] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
+
+  function handleAddContact() {
+    setSavedContacts([...savedContacts, contact]);
+    setContact("");
+  }
+
+  return (
+    <>
+      <br />
+      <h1>Contact Manager (Vibe-Code Free)</h1>
+      <br />
+      <div>
+        <div>
+          <input
+            type="text"
+            placeholder="Enter name"
+            required
+            value={contact.name}
+            onChange={(e) => setContact({ ...contact, name: e.target.value })}
+          />
+          &thinsp;
+          <input
+            type="email"
+            placeholder="Enter email"
+            required
+            value={contact.email}
+            onChange={(e) => setContact({ ...contact, email: e.target.value })}
+          />
+          &thinsp;
+          <input
+            type="number"
+            placeholder="Enter phone number"
+            required
+            value={contact.phone}
+            onChange={(e) => setContact({ ...contact, phone: e.target.value })}
+          />
+        </div>
+        <br />
+        <button onClick={handleAddContact}>Add Contact</button>
+      </div>
+      <br />
+      <h3>Adding: </h3>
+      <p>Name: {contact.name}</p>
+      <p>Email: {contact.email}</p>
+      <p>Phone: {contact.phone}</p>
+      <br />
+      <div>
+        <h2>List of Contacts Added: </h2>
+        <ul>
+          {savedContacts.map((c, i) => (
+            <li key={i}>
+              <span><strong>Name:</strong> {c.name}</span>&thinsp;&thinsp;
+              <span><strong>Email:</strong> {c.email}</span>&thinsp;&thinsp;
+              <span><strong>Phone Number:</strong> {c.phone}</span>&thinsp;&thinsp;
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
 }
