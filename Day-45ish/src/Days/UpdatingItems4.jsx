@@ -287,6 +287,16 @@ export default function UpdatingItems4() {
     setUserNote("");
   }
 
+  // okay, that actually made everything work, I dont know what I put inside this part: 
+//     function handleAddNote(newNote) {
+//     if (editingIndex !== null) {
+//     } else {
+//       setNotes([...notes, newNote]);
+//     }
+//     setUserNote("");
+//   }
+// specifically the if (editingIndex !== null) { part because Idk what I put there or anything necessary because everythings working so farrr XDDDD
+
   function handleEditCancel() {
     setEditingIndex(null);
     setUserNote("");
