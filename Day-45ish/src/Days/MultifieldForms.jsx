@@ -9,7 +9,20 @@ export default function MultifieldForms() {
 
   function handleAddContact() {
     setSavedContacts([...savedContacts, contact]);
-    setContact("");
+    // setContact(""); // This doesn't workk....
+    // setContact({}); // Doesnt work either...
+    setContact({ name: "", email: "", phone: "" }); // There we go XD
+  }
+
+  function handleEditContact(idx) {
+
+  }
+
+  function handleDeleteContact(idx) {
+    const filteredContacts = savedContacts.filter((c, i) => idx !== i)
+    setSavedContacts(filteredContacts)
+    // I got a feeling that this wont work because Im dealing with objects now xddd....
+    // Oh nvm, it worked like usual xdddd
   }
 
   return (
@@ -54,7 +67,7 @@ export default function MultifieldForms() {
       <br />
       <div>
         <h2>List of Contacts Added: </h2>
-        <ul>
+        {/* <ul>
           {savedContacts.map((c, i) => (
             <li key={i}>
               <span><strong>Name:</strong> {c.name}</span>&thinsp;&thinsp;
@@ -63,6 +76,29 @@ export default function MultifieldForms() {
             </li>
           ))}
         </ul>
+        // That looks ugly af */}
+        <ol>
+          {savedContacts.map((c, i) => (
+            <li key={i}>
+              <div>
+                <span>
+                  <strong>Name:</strong> {c.name}
+                </span>
+                &thinsp;&thinsp;
+                <span>
+                  <strong>Email:</strong> {c.email}
+                </span>
+                &thinsp;&thinsp;
+                <span>
+                  <strong>Phone Number:</strong> {c.phone}
+                </span>
+                &thinsp;&thinsp;
+                <button onClick={() => handleEditContact(i)}>Edit</button>
+                <button onClick={() => handleDeleteContact(i)}>Delete</button>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </>
   );
