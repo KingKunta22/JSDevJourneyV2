@@ -334,98 +334,98 @@
 
 // DAY 52: CONTINUATION (3RD DAY BEING STUCK XD)
 
-import { useState } from "react";
+// import { useState } from "react";
 
-export default function UpdatingItems3() {
-  const [note, setNote] = useState("");
-  const [notes, setNotes] = useState([]);
-  const [editingIndex, setEditingIndex] = useState(null);
+// export default function UpdatingItems3() {
+//   const [note, setNote] = useState("");
+//   const [notes, setNotes] = useState([]);
+//   const [editingIndex, setEditingIndex] = useState(null);
 
-  // 1. This runs when you type in the input
-  function handleNoteChange(newValue) {
-    // TODO: only update the "note" state
-    setNote(newValue);
-    // I did setNote instead of setNotes because you mentioned note and it's associated with setNote
-  }
+//   // 1. This runs when you type in the input
+//   function handleNoteChange(newValue) {
+//     // TODO: only update the "note" state
+//     setNote(newValue);
+//     // I did setNote instead of setNotes because you mentioned note and it's associated with setNote
+//   }
 
-  // 2. This runs when you click Add / Update
-  function handleSave() {
-    if (editingIndex !== null) {
-      // TODO: update the existing note using map
-      const updatedNote = notes.map((note, index) => {
-        // On this part, I should get the idx of the note from the notes and match it with? the index inside the map? This got me confused but let me try
-        if (index === editingIndex) {
-          // setNotes(...notes, item);
-          // setNotes(item);
-          console.log("Working")
-        }
-        return note
-      });
-      // OHHH, I FORGOT THIS:
-      // setNotes(updatedNote)
-      setNotes([...notes, updatedNote])
-      // TODO: exit edit mode (setEditingIndex(null))
-      setEditingIndex(null);
-    } else {
-      // TODO: add a new note using spread operator
-      setNotes([...notes, note]);
-    }
-    // TODO: clear the input
-    setNote("");
-  }
+//   // 2. This runs when you click Add / Update
+//   function handleSave() {
+//     if (editingIndex !== null) {
+//       // TODO: update the existing note using map
+//       const updatedNote = notes.map((note, index) => {
+//         // On this part, I should get the idx of the note from the notes and match it with? the index inside the map? This got me confused but let me try
+//         if (index === editingIndex) {
+//           // setNotes(...notes, item);
+//           // setNotes(item);
+//           console.log("Working")
+//         }
+//         return note
+//       });
+//       // OHHH, I FORGOT THIS:
+//       // setNotes(updatedNote)
+//       setNotes([...notes, updatedNote])
+//       // TODO: exit edit mode (setEditingIndex(null))
+//       setEditingIndex(null);
+//     } else {
+//       // TODO: add a new note using spread operator
+//       setNotes([...notes, note]);
+//     }
+//     // TODO: clear the input
+//     setNote("");
+//   }
 
-  // 3. This runs when you click Edit on a note
-  function handleEdit(idx) {
-    // TODO: set editingIndex to idx
-    setEditingIndex(idx);
-    // TODO: set note to notes[idx] (load the text into input)
-    // Okay, this is where Im reallyl really lost... let me try
-    setNote(notes[idx]);
-  }
+//   // 3. This runs when you click Edit on a note
+//   function handleEdit(idx) {
+//     // TODO: set editingIndex to idx
+//     setEditingIndex(idx);
+//     // TODO: set note to notes[idx] (load the text into input)
+//     // Okay, this is where Im reallyl really lost... let me try
+//     setNote(notes[idx]);
+//   }
 
-  // 4. This runs when you click Cancel
-  function handleCancel() {
-    // TODO: exit edit mode
-    setEditingIndex(null);
-    // TODO: clear the input
-    setNote("");
-  }
+//   // 4. This runs when you click Cancel
+//   function handleCancel() {
+//     // TODO: exit edit mode
+//     setEditingIndex(null);
+//     // TODO: clear the input
+//     setNote("");
+//   }
 
-  // 5. Delete (already done, keep it)
-  function handleDelete(idx) {
-    const filteredNotes = notes.filter((_, index) => index !== idx);
-    setNotes(filteredNotes);
-    // Also exit edit mode if you delete the note you were editing
-    if (editingIndex === idx) {
-      setEditingIndex(null);
-      setNote("");
-    }
-  }
+//   // 5. Delete (already done, keep it)
+//   function handleDelete(idx) {
+//     const filteredNotes = notes.filter((_, index) => index !== idx);
+//     setNotes(filteredNotes);
+//     // Also exit edit mode if you delete the note you were editing
+//     if (editingIndex === idx) {
+//       setEditingIndex(null);
+//       setNote("");
+//     }
+//   }
 
-  return (
-    <div>
-      <input
-        value={note}
-        onChange={(e) => handleNoteChange(e.target.value)}
-        placeholder="Write a note..."
-      />
-      <button onClick={handleSave}>
-        {editingIndex !== null ? "Update" : "Add"}
-      </button>
-      {editingIndex !== null && <button onClick={handleCancel}>Cancel</button>}
+//   return (
+//     <div>
+//       <input
+//         value={note}
+//         onChange={(e) => handleNoteChange(e.target.value)}
+//         placeholder="Write a note..."
+//       />
+//       <button onClick={handleSave}>
+//         {editingIndex !== null ? "Update" : "Add"}
+//       </button>
+//       {editingIndex !== null && <button onClick={handleCancel}>Cancel</button>}
 
-      <ul>
-        {notes.map((n, idx) => (
-          <li key={idx}>
-            {n}
-            <button onClick={() => handleEdit(idx)}>Edit</button>
-            <button onClick={() => handleDelete(idx)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+//       <ul>
+//         {notes.map((n, idx) => (
+//           <li key={idx}>
+//             {n}
+//             <button onClick={() => handleEdit(idx)}>Edit</button>
+//             <button onClick={() => handleDelete(idx)}>Delete</button>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
 
 // WOAH, I JUST CHECKED IT IF IT WORKED AND IT DID, I DO NOT KNOW HOW, I LITERALLY JUST FOLLOWED WHAT YOU ASKED ME TO DO. NOW I NEED YOU TO EXPLAINNNNNNN WHAT THOSE TASKS ARE SUPPOSED TO DO, LIKE WHY DID U WANT ME TO DO THIS AND THAT AND HOW DID IT WORKKKKKKKKKKKKKK, LIKEEE THE INPUT INSIDE THE WRITE A NOTE CHANGEDDD, HOW????????
 // AND ALSO, ALL OF A SUDDEN, I CAN ADD TASKS NOWWW, THE LAST PROMPT I GAVE U WAS BUGGED AND IT DIDNT ADD ANYTHING
@@ -504,4 +504,80 @@ export default function UpdatingItems3() {
       // // OHHH, I FORGOT THIS:
       // setNotes(updatedNote)
 
-// THE item, or the setNotes(updatedNote)
+// THE item, or the setNotes(updatedNote)\
+
+// OKAY, LOWKEY THIS MADE ME UNDERSTAND THE FLOW AND HOW EVERYTHING WORKS NOW, ITS A BIT CLEARER THAN LAST TIME
+
+import { useState } from "react";
+
+export default function UpdatingItems3() {
+  const [note, setNote] = useState("");
+  const [notes, setNotes] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
+
+  function handleNoteChange(newValue) {
+    setNote(newValue);
+  }
+
+  function handleSave() {
+    if (editingIndex !== null) {
+      const updatedNote = notes.map((item, index) => {
+        if (index === editingIndex) {
+          return note
+        }
+        return item
+      });
+      setNotes(updatedNote)
+      setEditingIndex(null);
+    } else {
+      setNotes([...notes, note]);
+    }
+    setNote("");
+  }
+
+  function handleEdit(idx) {
+    setEditingIndex(idx);
+    setNote(notes[idx]);
+  }
+
+  function handleCancel() {
+    setEditingIndex(null);
+    setNote("");
+  }
+
+  function handleDelete(idx) {
+    const filteredNotes = notes.filter((_, index) => index !== idx);
+    setNotes(filteredNotes);
+    if (editingIndex === idx) {
+      setEditingIndex(null);
+      setNote("");
+    }
+  }
+
+  return (
+    <div>
+      <input
+        value={note}
+        onChange={(e) => handleNoteChange(e.target.value)}
+        placeholder="Write a note..."
+      />
+      <button onClick={handleSave}>
+        {editingIndex !== null ? "Update" : "Add"}
+      </button>
+      {editingIndex !== null && <button onClick={handleCancel}>Cancel</button>}
+
+      <ul>
+        {notes.map((n, idx) => (
+          <li key={idx}>
+            {n}
+            <button onClick={() => handleEdit(idx)}>Edit</button>
+            <button onClick={() => handleDelete(idx)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+// Your approach is completely different to mine, and I'm kinda overwhelmed so just bear with me. I lowkey want to try everything from scratch to see if I really can grasp veerything that I learned sooooooooo, I'll try it after I send u this
