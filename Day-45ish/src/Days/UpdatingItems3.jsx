@@ -352,12 +352,18 @@ export default function UpdatingItems3() {
   function handleSave() {
     if (editingIndex !== null) {
       // TODO: update the existing note using map
-      const updatedNote = note.map((item, index) => {
+      const updatedNote = notes.map((note, index) => {
         // On this part, I should get the idx of the note from the notes and match it with? the index inside the map? This got me confused but let me try
         if (index === editingIndex) {
-          setNotes(...notes, item);
+          // setNotes(...notes, item);
+          // setNotes(item);
+          console.log("Working")
         }
+        return note
       });
+      // OHHH, I FORGOT THIS:
+      // setNotes(updatedNote)
+      setNotes([...notes, updatedNote])
       // TODO: exit edit mode (setEditingIndex(null))
       setEditingIndex(null);
     } else {
@@ -465,3 +471,37 @@ export default function UpdatingItems3() {
 //     </div>
 
 //     EXPLAIN AND ELABORATE EACH LINE I HIGHLIGHTED SO THAT I UNDERSTAND A BIT MORE.... XDDD MAKE SURE THAT ITS UNDERSTANDABLEEEE FOR MEE
+
+// RN UPDATE IS STILL NOT WORKING BUTT, I GOT SOME PROGRESS (IM LITERALLY JUST GASLIGHTING MYSELF, I KNOW YOU DID MOST OF THE WORK XDD, ILL BE FINE WITH THIS THIS TIME BECAUSE I GOT REALLLY REALLY STUCK, BUT JUST MINIMALIZE SSPOONFEEDING MY A WHOLE BLOCK OF CODE, A FEW LINES IS ENOUGH XDD)
+
+// SO THIS BLOCK HAS A PROBLEM:
+
+    // if (editingIndex !== null) {
+    //   // TODO: update the existing note using map
+    //   const updatedNote = note.map((item, index) => {
+    //     // On this part, I should get the idx of the note from the notes and match it with? the index inside the map? This got me confused but let me try
+    //     if (index === editingIndex) {
+    //       // setNotes(...notes, item);
+    //       setNotes(item);
+    //     }
+    //   });
+
+// LET ME TRY TO FIGURE IT OUT....
+
+// SO THE STATE IS WORKING BECAUSE I LOOKED IT UP ON THE COMPONENTS REACT DEV TOOLS
+// THE PROBLEM IS THATTT ITS SAYING NOTE.MAP ISNT A FUNCTION
+//. THJAT MEANS THERES A PROBLEM WITH EITHERRR
+
+      // const updatedNote = note.map((item, index) => {
+      //   // On this part, I should get the idx of the note from the notes and match it with? the index inside the map? This got me confused but let me try
+      //   if (index === editingIndex) {
+      //     // setNotes(...notes, item);
+      //     // setNotes(item);
+      //     console.log("Working")
+      //   }
+      //   item
+      // });
+      // // OHHH, I FORGOT THIS:
+      // setNotes(updatedNote)
+
+// THE item, or the setNotes(updatedNote)
