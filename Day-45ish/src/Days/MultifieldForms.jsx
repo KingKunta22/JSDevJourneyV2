@@ -120,7 +120,19 @@ export default function MultifieldForms() {
 
   function handleEditContact(idx) {
     setEditingIndex(idx)
-  }
+    // setContact({name: savedContacts.name, email: savedContacts.email, phone: savedContacts.phone})
+    // I mean this kinda makes sense but how will it know which indexxxx inside the savedContacts to get?
+    // So I think isntead of doing that, I should map the savedContacts insteadd to have more control over everything thats inside the savedContacts
+    const newContacts = savedContacts.map((c, i) => {
+        if(i === idx) {
+            // return contact? IDK I am just geuessing what to put here ngl
+            // Okay I am pretty lostt hereeee, what syntax do I do to get the name email and phone and return it?
+        }
+        return c
+    })
+    // contact(newContacts) I also feel like this is whats contributing to why its not working, I should be more specific here
+    contact({name: newContacts.name, email: newContacts.email, phone: newContacts.phone})
+}
 
   function handleEditSave() {}
 
