@@ -204,7 +204,7 @@
 //         }
 //         return c
 //     })
-//     console.log(updatedContacts) // Hmm, it is working butt 
+//     console.log(updatedContacts) // Hmm, it is working butt
 //     // setSavedContacts(updatedContacts) // This should workk...
 //     setEditingIndex(null);
 //     setContact({name: "", email: "", phone: ""}) // I ALSO FORGOT THIS LOL
@@ -341,17 +341,41 @@ export default function MultifieldForms() {
   }
 
   function handleEditSave() {
+    // const updatedContacts = savedContacts.map((c, i) => {
+    //     if(i === setEditingIndex){
+    //         // return setSavedContacts([contact]) //I dont think I should be doing these here, I should be doing this when I get the updatedContacts array, so what I should do here is update this specific index to the value or state inside the contact
+    //         // return {name: contact.name, email: contact.email, phone: contact.phone} // This doesnt work either
+    //         return contact
+    //     }
+    //     return c
+    // })
+    // Okay, so I actually looked up your guide from your recent prompt, and I just noticed that you were mapping the contacts instead of the savedContacts, I just learned and realized that so let me try again:
+    // const updatedContacts = contact.map((c, i) => {
+    //   if (i === setEditingIndex) {
+    //     return contact;
+    //   }
+    //   return c;
+    // });
+    /// FUCK I JSUT REALIZED ITS JSUT A NAMING CONVENTION, I SHOULD BE USING SAVEDCONTACTS BRUHHH
+    // const updatedContacts = savedContacts.map((c, i) => {
+    //   if (i === setEditingIndex) {
+    //     return contact;
+    //   }
+    //   return c;
+    // });
+    // BRUHHH WHY DOES IT WORK ION YOUR SHIT BUT NOT ON MINE, IS IT BECAUSE OF THE () =>?
+    // OH MY FUCKING GODDD, AFTER 30 FUCKING MINUTES, I REALIZED THE SMALLESTTT FUCKINGGG DETAIL WHICH CAUSEEDD THE ENTIREEE MOTHERFUCKING ISSUEEEEEEEEE WTFFFFFFFFFFFFFFFFF, IVE BEEN DOING i === setEditingIndex all alongggggg OMGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
     const updatedContacts = savedContacts.map((c, i) => {
-        if(i === setEditingIndex){
-
-        }
-        return c
-    })
-    console.log(updatedContacts)
-    // setSavedContacts(updatedContacts) // This should workk...
+      if (i === editingIndex) {
+        return contact;
+      }
+      return c;
+    });
+    // console.log(updatedContacts);
+    setSavedContacts(updatedContacts);
     setEditingIndex(null);
-    setContact({name: "", email: "", phone: ""})
-}
+    setContact({ name: "", email: "", phone: "" });
+  }
 
   function handleEditCancel() {
     setEditingIndex(null);
