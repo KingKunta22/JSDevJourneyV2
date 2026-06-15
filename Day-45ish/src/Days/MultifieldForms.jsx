@@ -174,11 +174,38 @@ export default function MultifieldForms() {
     // console.log(contact.email);
     // console.log(contact.phone);
     // Okay, its workingg, but how would I add that tot hteeeeee setSavedContacts thoo, let met ry again...
-    setSavedContacts({name: contact.name, email: contact.email, phone: contact.phone})
+    // setSavedContacts({name: contact.name, email: contact.email, phone: contact.phone})
     // This should workkk because I no lomnger use the unnecessary [editingIndex] bnecause I realized I didnt need that since contact's state isnt an array or whateverr....
     // WHATTT, WHY AM I GETTING THIS ERRORRR: ncaught TypeError: savedContacts.map is not a function
+    // OHHH, I SEE, WHY AM I USING CURLY BRACES WHEN SAVED CONTACTS IS AN ARRAYY, THATS ONE WRONG BUT LET ME SEE IF THAT FIXES THE ISSUE...
+    // setSavedContacts([setEditingIndex{name: contact.name, email: contact.email, phone: contact.phone}]) // This doesnt work....
+    // setSavedContacts([setEditingIndex].name: contact.name, email: contact.email, phone: contact.phone)
+    // FUCK IM SO LOST, HOW SHOULD I APPROACH THISS....
+    // setSavedContacts([]) HMMM, SHOULD I DO THE MAP FUNCTION HERE TO REPLICATE AN ARRAYYY
+    // const updatedContacts = savedContacts.map((c, i) => {
+    //     if(i === setEditingIndex){
+    //         return contact
+    //     }
+    //     return c
+    // })
+    // setSavedContacts(updatedContacts)
+    // FUHHHH, HOPE THISLL WORKKKKK
+    // FUHHH, IT DIDNTT SAVE OR UPDATE ANYTHINGGGGGGGG
+    const updatedContacts = savedContacts.map((c, i) => {
+        if(i === setEditingIndex){
+            // return contact // I think this one is wrong because when I do a console log, the console.log(updatedContacts) doesn't show that the i === setEditingIndex item is updated sooo...
+            // return contact(c.name, c.email, c.phone) // Fuh, its still not updatinggg
+            // return setContact(c.name, c.email, c.phone) // Okay, my brains not working idk what im doing
+            // return setSavedContacts([contact[i].name, contacts[i].email, contacts[i].phone ]) // STILL NOT UPDAITNGGGG...
+            setSavedContacts()
+        }
+        return c
+    })
+    console.log(updatedContacts) // Hmm, it is working butt 
+    // setSavedContacts(updatedContacts) // This should workk...
     setEditingIndex(null);
-  }
+    setContact({name: "", email: "", phone: ""}) // I ALSO FORGOT THIS LOL
+}
 
   function handleEditCancel() {
     setEditingIndex(null);
