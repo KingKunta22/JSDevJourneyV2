@@ -166,7 +166,17 @@ export default function MultifieldForms() {
     // setSavedContacts({name: contact[editingIndex].name, email: email[editingIndex].email, phone: contact[editingIndex].phone}) // Okayyy, this looks wrong but let me see if I can find anyy progress or hints
     // setEditingIndex(null)
     // Okay, it didn't work... let me fix and polish the delete function before i deal with this xd
-    setSavedContacts();
+    // Hmmm, should I use an array function herer, I feel like I need to do thattt.... but howww
+    // console.log(contact[editingIndex].name)
+    // console.log(contact[editingIndex].email)
+    // console.log(contact[editingIndex].phone)
+    // console.log(contact.name);
+    // console.log(contact.email);
+    // console.log(contact.phone);
+    // Okay, its workingg, but how would I add that tot hteeeeee setSavedContacts thoo, let met ry again...
+    setSavedContacts({name: contact.name, email: contact.email, phone: contact.phone})
+    // This should workkk because I no lomnger use the unnecessary [editingIndex] bnecause I realized I didnt need that since contact's state isnt an array or whateverr....
+    // WHATTT, WHY AM I GETTING THIS ERRORRR: ncaught TypeError: savedContacts.map is not a function
     setEditingIndex(null);
   }
 
