@@ -149,16 +149,20 @@ export default function MultifieldForms() {
         // return c // I dont think I need this
     })
     // setContact({name: newContacts.name, email: newContacts.email, phone: newContacts.phone})
-    console.log(newContacts)// Let me try this out
+    // console.log(newContacts)// Let me try this out
     // console.log(newContacts.name) // Okay, this isn't working i wonder why....
     // So why is the map gettin all the items inside the saveContacts and then saying the other ones are undefined wtff
-    console.log(newContacts[idx].name) // Okay, there we go, I hope im doing it right
-
+    // console.log(newContacts[idx].name) // Okay, there we go, I hope im doing it right
+    setContact({name: newContacts[idx].name, email: newContacts[idx].email, phone: newContacts[idx].phone}) // Damn, this looks wrongalready but let me try....
+    // WOAAHHH ITS ACTUALLY WORKING WHAT THE HELLLL XDDDDD
 }
 
   function handleEditSave() {}
 
-  function handleEditCancel() {}
+  function handleEditCancel() {
+    setEditingIndex(null)
+    setContact({name: "", email: "", phone: ""})
+  }
 
   function handleDeleteContact(idx) {
     const filteredContacts = savedContacts.filter((c, i) => idx !== i);
