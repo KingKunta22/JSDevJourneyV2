@@ -106,6 +106,214 @@
 
 // Alright time to deal with the edittttttt........
 
+// import { useState } from "react";
+
+// export default function MultifieldForms() {
+//   const [contact, setContact] = useState({ name: "", email: "", phone: "" });
+//   const [savedContacts, setSavedContacts] = useState([]);
+//   const [editingIndex, setEditingIndex] = useState(null);
+
+//   function handleAddContact() {
+//     setSavedContacts([...savedContacts, contact]);
+//     setContact({ name: "", email: "", phone: "" }); // There we go XD
+//   }
+
+//   //   function handleEditContact(idx) {
+//   //     setEditingIndex(idx)
+//   //     // setContact({name: savedContacts.name, email: savedContacts.email, phone: savedContacts.phone})
+//   //     // I mean this kinda makes sense but how will it know which indexxxx inside the savedContacts to get?
+//   //     // So I think isntead of doing that, I should map the savedContacts insteadd to have more control over everything thats inside the savedContacts
+//   //     const newContacts = savedContacts.map((c, i) => {
+//   //         if(i === idx) {
+//   //             // return contact? IDK I am just geuessing what to put here ngl
+//   //             // Okay I am pretty lostt hereeee, what syntax do I do to get the name email and phone and return it?
+//   //             // console.log("Hello") So I mean its working here....
+//   //         }
+//   //         return c
+//   //     })
+//   //     // contact(newContacts) I also feel like this is whats contributing to why its not working, I should be more specific here
+//   //     setContact({name: newContacts.name, email: newContacts.email, phone: newContacts.phone})
+//   // } FUHHM, LET ME TRY A DIFF APPROACHA
+
+//   function handleEditContact(idx) {
+//     setEditingIndex(idx);
+//     const newContacts = savedContacts.map((c, i) => {
+//       if (i === idx) {
+//         // console.log("This is correct:" + c)
+//         // Alright its getting it but its saying object Object, that means I need to go deeper
+//         // return {c.name, c.email, c.phone} // Bruh why isn't it working this way...
+//         // return {...c, c:name, c:email, c:phone} // Bruh idk what im doing xdddd
+//         return c;
+//         // Bruh installHook.js:1 A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info:
+//       }
+//       // return c // I dont think I need this
+//     });
+//     // setContact({name: newContacts.name, email: newContacts.email, phone: newContacts.phone})
+//     // console.log(newContacts)// Let me try this out
+//     // console.log(newContacts.name) // Okay, this isn't working i wonder why....
+//     // So why is the map gettin all the items inside the saveContacts and then saying the other ones are undefined wtff
+//     // console.log(newContacts[idx].name) // Okay, there we go, I hope im doing it right
+//     setContact({
+//       name: newContacts[idx].name,
+//       email: newContacts[idx].email,
+//       phone: newContacts[idx].phone,
+//     }); // Damn, this looks wrongalready but let me try....
+//     // WOAAHHH ITS ACTUALLY WORKING WHAT THE HELLLL XDDDDD
+//   }
+
+//   // Alright, time to do the fuckennnn handleEditSave because cancel and edit is working already
+//   function handleEditSave() {
+//     // setSavedContacts({name: contact[editingIndex].name, email: email[editingIndex].email, phone: contact[editingIndex].phone}) // Okayyy, this looks wrong but let me see if I can find anyy progress or hints
+//     // setEditingIndex(null)
+//     // Okay, it didn't work... let me fix and polish the delete function before i deal with this xd
+//     // Hmmm, should I use an array function herer, I feel like I need to do thattt.... but howww
+//     // console.log(contact[editingIndex].name)
+//     // console.log(contact[editingIndex].email)
+//     // console.log(contact[editingIndex].phone)
+//     // console.log(contact.name);
+//     // console.log(contact.email);
+//     // console.log(contact.phone);
+//     // Okay, its workingg, but how would I add that tot hteeeeee setSavedContacts thoo, let met ry again...
+//     // setSavedContacts({name: contact.name, email: contact.email, phone: contact.phone})
+//     // This should workkk because I no lomnger use the unnecessary [editingIndex] bnecause I realized I didnt need that since contact's state isnt an array or whateverr....
+//     // WHATTT, WHY AM I GETTING THIS ERRORRR: ncaught TypeError: savedContacts.map is not a function
+//     // OHHH, I SEE, WHY AM I USING CURLY BRACES WHEN SAVED CONTACTS IS AN ARRAYY, THATS ONE WRONG BUT LET ME SEE IF THAT FIXES THE ISSUE...
+//     // setSavedContacts([setEditingIndex{name: contact.name, email: contact.email, phone: contact.phone}]) // This doesnt work....
+//     // setSavedContacts([setEditingIndex].name: contact.name, email: contact.email, phone: contact.phone)
+//     // FUCK IM SO LOST, HOW SHOULD I APPROACH THISS....
+//     // setSavedContacts([]) HMMM, SHOULD I DO THE MAP FUNCTION HERE TO REPLICATE AN ARRAYYY
+//     // const updatedContacts = savedContacts.map((c, i) => {
+//     //     if(i === setEditingIndex){
+//     //         return contact
+//     //     }
+//     //     return c
+//     // })
+//     // setSavedContacts(updatedContacts)
+//     // FUHHHH, HOPE THISLL WORKKKKK
+//     // FUHHH, IT DIDNTT SAVE OR UPDATE ANYTHINGGGGGGGG
+//     const updatedContacts = savedContacts.map((c, i) => {
+//         if(i === setEditingIndex){
+//             // return contact // I think this one is wrong because when I do a console log, the console.log(updatedContacts) doesn't show that the i === setEditingIndex item is updated sooo...
+//             // return contact(c.name, c.email, c.phone) // Fuh, its still not updatinggg
+//             // return setContact(c.name, c.email, c.phone) // Okay, my brains not working idk what im doing
+//             // return setSavedContacts([contact[i].name, contacts[i].email, contacts[i].phone ]) // STILL NOT UPDAITNGGGG...
+//             // return contact.name, contact.email, contact.phone // I mean this is the only one that kinda makes senes FUCKKKK STILLL DOESNTTT
+//             // return contact{name: contact.name, email: contact.email, phone: contact.phone} // Still should not work....
+//             // return contact.name // Damn, even this doesnt workkkk , my brain is completely not working rnn
+//             // return c.name // FIJJJ I WANNA SURRENDER BUT IM LIKEEE 99% DONEEE
+//         }
+//         return c
+//     })
+//     console.log(updatedContacts) // Hmm, it is working butt 
+//     // setSavedContacts(updatedContacts) // This should workk...
+//     setEditingIndex(null);
+//     setContact({name: "", email: "", phone: ""}) // I ALSO FORGOT THIS LOL
+// }
+
+//   function handleEditCancel() {
+//     setEditingIndex(null);
+//     setContact({ name: "", email: "", phone: "" });
+//   }
+//   // EZ
+
+//   function handleDeleteContact(idx) {
+//     // if (editingIndex === null) {
+//     //   const filteredContacts = savedContacts.filter((c, i) => idx !== i);
+//     //   setSavedContacts(filteredContacts);
+//     // } else {
+//     //   const filteredContacts = savedContacts.filter((c, i) => idx !== i);
+//     //   setSavedContacts(filteredContacts);
+//     //   setContact({name: "", email: "", phone: ""})
+//     //   setEditingIndex(null);
+//     // }
+//     // There should be a cleaner way to do this, let me try XDDD
+//     const filteredContacts = savedContacts.filter((c, i) => idx !== i);
+//     setSavedContacts(filteredContacts);
+//     if (editingIndex !== null) {
+//       setContact({ name: "", email: "", phone: "" });
+//       setEditingIndex(null);
+//     }
+//     // There we go, thats a bit concise XD
+//   }
+
+//   return (
+//     <>
+//       <br />
+//       <h1>Contact Manager (Vibe-Code Free)</h1>
+//       <br />
+//       <div>
+//         <div>
+//           <input
+//             type="text"
+//             placeholder="Enter name"
+//             required
+//             value={contact.name}
+//             onChange={(e) => setContact({ ...contact, name: e.target.value })}
+//           />
+//           &thinsp;
+//           <input
+//             type="email"
+//             placeholder="Enter email"
+//             required
+//             value={contact.email}
+//             onChange={(e) => setContact({ ...contact, email: e.target.value })}
+//           />
+//           &thinsp;
+//           <input
+//             type="number"
+//             placeholder="Enter phone number"
+//             required
+//             value={contact.phone}
+//             onChange={(e) => setContact({ ...contact, phone: e.target.value })}
+//           />
+//         </div>
+//         <br />
+//         {editingIndex === null ? (
+//           <button onClick={handleAddContact}>Add Contact</button>
+//         ) : (
+//           <>
+//             <button onClick={handleEditSave}>Save</button>
+//             <button onClick={handleEditCancel}>Cancel</button>
+//           </>
+//         )}
+//       </div>
+//       <br />
+//       <h3>Adding: </h3>
+//       <p>Name: {contact.name}</p>
+//       <p>Email: {contact.email}</p>
+//       <p>Phone: {contact.phone}</p>
+//       <br />
+//       <div>
+//         <h2>List of Contacts Added: </h2>
+//         <ol>
+//           {savedContacts.map((c, i) => (
+//             <li key={i}>
+//               <div>
+//                 <span>
+//                   <strong>Name:</strong> {c.name}
+//                 </span>
+//                 &thinsp;&thinsp;
+//                 <span>
+//                   <strong>Email:</strong> {c.email}
+//                 </span>
+//                 &thinsp;&thinsp;
+//                 <span>
+//                   <strong>Phone Number:</strong> {c.phone}
+//                 </span>
+//                 &thinsp;&thinsp;
+//                 <button onClick={() => handleEditContact(i)}>Edit</button>
+//                 <button onClick={() => handleDeleteContact(i)}>Delete</button>
+//               </div>
+//             </li>
+//           ))}
+//         </ol>
+//       </div>
+//     </>
+//   );
+// }
+
+// IM 99% DOPNEEE STILL STUCK ON THAT ONE SPECIFIC LINE BUT LET ME SHOWER FIRST, BNEXT CODE'S GONNA BE MY SHIT AFTER SHOWERING B)
+
 import { useState } from "react";
 
 export default function MultifieldForms() {
@@ -115,96 +323,34 @@ export default function MultifieldForms() {
 
   function handleAddContact() {
     setSavedContacts([...savedContacts, contact]);
-    setContact({ name: "", email: "", phone: "" }); // There we go XD
+    setContact({ name: "", email: "", phone: "" });
   }
-
-  //   function handleEditContact(idx) {
-  //     setEditingIndex(idx)
-  //     // setContact({name: savedContacts.name, email: savedContacts.email, phone: savedContacts.phone})
-  //     // I mean this kinda makes sense but how will it know which indexxxx inside the savedContacts to get?
-  //     // So I think isntead of doing that, I should map the savedContacts insteadd to have more control over everything thats inside the savedContacts
-  //     const newContacts = savedContacts.map((c, i) => {
-  //         if(i === idx) {
-  //             // return contact? IDK I am just geuessing what to put here ngl
-  //             // Okay I am pretty lostt hereeee, what syntax do I do to get the name email and phone and return it?
-  //             // console.log("Hello") So I mean its working here....
-  //         }
-  //         return c
-  //     })
-  //     // contact(newContacts) I also feel like this is whats contributing to why its not working, I should be more specific here
-  //     setContact({name: newContacts.name, email: newContacts.email, phone: newContacts.phone})
-  // } FUHHM, LET ME TRY A DIFF APPROACHA
 
   function handleEditContact(idx) {
     setEditingIndex(idx);
     const newContacts = savedContacts.map((c, i) => {
       if (i === idx) {
-        // console.log("This is correct:" + c)
-        // Alright its getting it but its saying object Object, that means I need to go deeper
-        // return {c.name, c.email, c.phone} // Bruh why isn't it working this way...
-        // return {...c, c:name, c:email, c:phone} // Bruh idk what im doing xdddd
         return c;
-        // Bruh installHook.js:1 A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info:
       }
-      // return c // I dont think I need this
     });
-    // setContact({name: newContacts.name, email: newContacts.email, phone: newContacts.phone})
-    // console.log(newContacts)// Let me try this out
-    // console.log(newContacts.name) // Okay, this isn't working i wonder why....
-    // So why is the map gettin all the items inside the saveContacts and then saying the other ones are undefined wtff
-    // console.log(newContacts[idx].name) // Okay, there we go, I hope im doing it right
     setContact({
       name: newContacts[idx].name,
       email: newContacts[idx].email,
       phone: newContacts[idx].phone,
-    }); // Damn, this looks wrongalready but let me try....
-    // WOAAHHH ITS ACTUALLY WORKING WHAT THE HELLLL XDDDDD
+    });
   }
 
-  // Alright, time to do the fuckennnn handleEditSave because cancel and edit is working already
   function handleEditSave() {
-    // setSavedContacts({name: contact[editingIndex].name, email: email[editingIndex].email, phone: contact[editingIndex].phone}) // Okayyy, this looks wrong but let me see if I can find anyy progress or hints
-    // setEditingIndex(null)
-    // Okay, it didn't work... let me fix and polish the delete function before i deal with this xd
-    // Hmmm, should I use an array function herer, I feel like I need to do thattt.... but howww
-    // console.log(contact[editingIndex].name)
-    // console.log(contact[editingIndex].email)
-    // console.log(contact[editingIndex].phone)
-    // console.log(contact.name);
-    // console.log(contact.email);
-    // console.log(contact.phone);
-    // Okay, its workingg, but how would I add that tot hteeeeee setSavedContacts thoo, let met ry again...
-    // setSavedContacts({name: contact.name, email: contact.email, phone: contact.phone})
-    // This should workkk because I no lomnger use the unnecessary [editingIndex] bnecause I realized I didnt need that since contact's state isnt an array or whateverr....
-    // WHATTT, WHY AM I GETTING THIS ERRORRR: ncaught TypeError: savedContacts.map is not a function
-    // OHHH, I SEE, WHY AM I USING CURLY BRACES WHEN SAVED CONTACTS IS AN ARRAYY, THATS ONE WRONG BUT LET ME SEE IF THAT FIXES THE ISSUE...
-    // setSavedContacts([setEditingIndex{name: contact.name, email: contact.email, phone: contact.phone}]) // This doesnt work....
-    // setSavedContacts([setEditingIndex].name: contact.name, email: contact.email, phone: contact.phone)
-    // FUCK IM SO LOST, HOW SHOULD I APPROACH THISS....
-    // setSavedContacts([]) HMMM, SHOULD I DO THE MAP FUNCTION HERE TO REPLICATE AN ARRAYYY
-    // const updatedContacts = savedContacts.map((c, i) => {
-    //     if(i === setEditingIndex){
-    //         return contact
-    //     }
-    //     return c
-    // })
-    // setSavedContacts(updatedContacts)
-    // FUHHHH, HOPE THISLL WORKKKKK
-    // FUHHH, IT DIDNTT SAVE OR UPDATE ANYTHINGGGGGGGG
     const updatedContacts = savedContacts.map((c, i) => {
         if(i === setEditingIndex){
-            // return contact // I think this one is wrong because when I do a console log, the console.log(updatedContacts) doesn't show that the i === setEditingIndex item is updated sooo...
-            // return contact(c.name, c.email, c.phone) // Fuh, its still not updatinggg
-            // return setContact(c.name, c.email, c.phone) // Okay, my brains not working idk what im doing
-            // return setSavedContacts([contact[i].name, contacts[i].email, contacts[i].phone ]) // STILL NOT UPDAITNGGGG...
-            setSavedContacts()
+
         }
         return c
     })
-    console.log(updatedContacts) // Hmm, it is working butt 
+    console.log(updatedContacts)
     // setSavedContacts(updatedContacts) // This should workk...
     setEditingIndex(null);
-    setContact({name: "", email: "", phone: ""}) // I ALSO FORGOT THIS LOL
+    setContact({name: "", email: "", phone: ""})
 }
 
   function handleEditCancel() {
@@ -214,23 +360,12 @@ export default function MultifieldForms() {
   // EZ
 
   function handleDeleteContact(idx) {
-    // if (editingIndex === null) {
-    //   const filteredContacts = savedContacts.filter((c, i) => idx !== i);
-    //   setSavedContacts(filteredContacts);
-    // } else {
-    //   const filteredContacts = savedContacts.filter((c, i) => idx !== i);
-    //   setSavedContacts(filteredContacts);
-    //   setContact({name: "", email: "", phone: ""})
-    //   setEditingIndex(null);
-    // }
-    // There should be a cleaner way to do this, let me try XDDD
     const filteredContacts = savedContacts.filter((c, i) => idx !== i);
     setSavedContacts(filteredContacts);
     if (editingIndex !== null) {
       setContact({ name: "", email: "", phone: "" });
       setEditingIndex(null);
     }
-    // There we go, thats a bit concise XD
   }
 
   return (
