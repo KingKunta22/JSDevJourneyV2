@@ -9,10 +9,11 @@
 // import UpdatingItems2 from "./Days/UpdatingItems2.jsx" // Day 52
 // import UpdatingItems3 from "./Days/UpdatingItems3.jsx" // Day 52 :(
 // import UpdatingItems4 from "./Days/UpdatingItems4.jsx" // Day 52 :(
-import MultifieldForms from "./Days/MultifieldForms.jsx" // Day 53 :)))
+// import MultifieldForms from "./Days/MultifieldForms.jsx" // Day 53 :)))
+import LiftingStateUp from "./Days/LiftingStateUp.jsx" // Day 54
 
 function App() {
-  return <MultifieldForms />;
+  return <LiftingStateUp />;
 }
 
 export default App;
