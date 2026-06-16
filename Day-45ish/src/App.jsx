@@ -34,11 +34,26 @@ function App() {
     setContact({ name: " ", email: "", phone: "" });
   }
 
-  function handleDelete(idx) {}
+  function handleDelete(idx) {
+    const filteredContact = contactList.map((c, i) => {
+      if (idx !== i) {
+        return c;
+      }
+    });
+    if (editingIndex !== null) {
+      setContact({ name: "", email: "", phone: "" });
+    }
+    setContactList(filteredContact);
+  }
+  // DID THIS FUNCTION BY MYSELFFF, HOPEFULLY THATS CORRECT
 
   function handleEdit() {}
 
-  function handleCancel() {}
+  function handleCancel() {
+    setEditingIndex(null)
+    setContact({name: "", email: "", phone: ""})
+  }
+  // DID THIS FUNCTION BY MYSELF AS WELLL
 
   // return <ContactForm />;
   // return <ContactList />;
