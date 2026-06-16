@@ -15,38 +15,50 @@ import ContactList from "./Days/ContactManager/ContactList.jsx"; // Day 54
 import { useState } from "react";
 
 function App() {
-
   const [contact, setContact] = useState("");
-  const [contactList, setContactList] = useState([])
-  const [editingIndex, setEditingIndex] = useState(null)
+  const [contactList, setContactList] = useState([]);
+  const [editingIndex, setEditingIndex] = useState(null);
+
+  // What is this for????????????
+  function handleOnChange() {}
 
   // Handler Functions
   function handleSave() {
-    if(editingIndex !== null) {
-      setContactList([...contactList, contact])
-      setContact("")
-      setEditingIndex(null)
-    } else {
+    if (editingIndex !== null) {
       // Edit Save Function
+      setEditingIndex(null);
+    } else {
+      // Add Function
+      setContactList([...contactList, contact]);
     }
+    setContact({ name: " ", email: "", phone: "" });
   }
 
-  function handleDelete(idx){
+  function handleDelete(idx) {}
 
-  }
+  function handleEdit() {}
 
-  function handleEditCancel(){
-    
-  }
-
-
+  function handleCancel() {}
 
   // return <ContactForm />;
   // return <ContactList />;
   return (
     <>
-      <ContactForm />
-      <ContactList />
+      I'm literally just copying what you said on the lecture, I have zero idea
+      what I am doing, I might need to go lecture deep n this one because I'm
+      kinda lost
+      <ContactForm
+        contact={contact}
+        editingIndex={editingIndex}
+        onChange={handleChange}
+        onSave={handleSave}
+        onCancel={handleCancel}
+      />
+      <ContactList
+        contactList={contactList}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+      />
     </>
   );
 }
