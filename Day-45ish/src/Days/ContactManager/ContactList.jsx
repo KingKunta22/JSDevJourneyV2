@@ -2,5 +2,9 @@
 
 export default function ContactList({ contactList, onEdit, onDelete}) {
     return(<>
+    <h2>Here's your contact list:</h2>
+    <div>
+        <ul></ul>
+    </div>
     </>)
 }

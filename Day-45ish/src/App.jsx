@@ -44,13 +44,13 @@ function App() {
   // return <ContactList />;
   return (
     <>
-      I'm literally just copying what you said on the lecture, I have zero idea
+      {/* I'm literally just copying what you said on the lecture, I have zero idea
       what I am doing, I might need to go lecture deep n this one because I'm
-      kinda lost
+      kinda lost */}
       <ContactForm
         contact={contact}
         editingIndex={editingIndex}
-        onChange={handleChange}
+        onChange={handleOnChange}
         onSave={handleSave}
         onCancel={handleCancel}
       />
