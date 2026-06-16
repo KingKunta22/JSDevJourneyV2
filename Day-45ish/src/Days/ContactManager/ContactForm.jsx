@@ -14,14 +14,19 @@ export default function ContactForm({
       <br />
       <div>
         <div>
-          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Name" value={contact.name} onChange={onChange}/>
           &thinsp;
-          <input type="email" placeholder="Email"/>
+          <input type="email" placeholder="Email" value={contact.email} onChange={onChange}/>
           &thinsp;
-          <input type="number" placeholder="Phone #"/>
+          <input type="number" placeholder="Phone #" value={contact.phone} onChange={onChange}/>
         </div>
         <br />
-        <button>Add Contact</button>
+        <button onClick={onSave}>
+            {editingIndex !== null ? "Update" : "Add"}
+        </button>
+        {/* {editingIndex !== null ? (<button onClick={onCancel}>Cancel</button>)} Ohh wait, this is wrong? */}
+        {editingIndex !== null && <button onClick={onCancel}>Cancel</button>} 
+        {/* WHAT? HOW? */}
         <br />
         <br />
         <br />
