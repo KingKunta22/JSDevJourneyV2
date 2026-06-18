@@ -27,6 +27,7 @@ export default function ContactForm({
         {/* {editingIndex !== null ? (<button onClick={onCancel}>Cancel</button>)} Ohh wait, this is wrong? */}
         {editingIndex !== null && <button onClick={onCancel}>Cancel</button>} 
         {/* WHAT? HOW? */}
+        
         <br />
         <br />
         <br />
@@ -36,3 +37,5 @@ export default function ContactForm({
 }
 
 // Wow, I am so confused, can you also do a similarity check on the laravel props, because I used to do that but I kinda forgot it or maybe yk it might help me XD
+
+// CONSUMINGGGGG MEDIAAAA BY WATCHING REACT JS TUYTORIALLSSS EHEHE
